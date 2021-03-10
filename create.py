@@ -1,4 +1,5 @@
 # new post
+# test!!
 # setup some global things yourself...
 # argv[1] : title, argv[2] : category
 import re
