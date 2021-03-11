@@ -9,8 +9,6 @@ categories: [DataEngineering,Hadoop]
 
 ![img](https://github.com/JaeguKim/Cookbook/raw/master/images/MapReduce-Process-Detailed.jpg)
 
-- 실패시 회복이 빠름 - 마스터 애플리케이션이 각각의 파티션에 대해 mapper와 reducer를 모니터링함.
-
 데이터를 두가지 단계로 처리한다 : map phase, reduce phase.
 map phase에는 HDFS로 부터 데이터를 읽는다. 각각의 dataset은  input record라고 부른다.
 reduce phase에는 실제 계산이 수행되고 결과가 저장된다. 그리고 저장 타깃은 database,HDFS 등이 될수 있습니다.
