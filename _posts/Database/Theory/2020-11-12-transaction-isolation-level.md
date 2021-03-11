@@ -23,3 +23,5 @@ categories: [Database,Theory]
 | Dirty Read  | - 어떤 트랜잭션에서 아직 실행이 끝나지 않은 트랜잭션에 의한 변경사항을 보게 되는 경우 |
 | Non Repeatable Read  | - 어떤 트랜잭션이 같은 쿼리를 2번 실행하는데 그 사이에 다른 트랜잭션이 수정/삭제를 하는 경우 |
 | Phantom Read  | - 어떤 트랜잭션이 같은 쿼리를 2번 실행하는데 그 사이에 없던 레코드가 추가된 경우 |
+
+## [추가 설명](https://nesoy.github.io/articles/2019-05/Database-Transaction-isolation)
