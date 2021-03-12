@@ -42,3 +42,5 @@ showPrint("hello")  // prints "olleh"
 
 파라미터의 타입에 맞는 Show 클래스를 생성하기때문에, ad-hoc polymorphism을 제공한다. 주로 존재하는 타입에 대해서 generic한 방식으로 새로운 behavior를 제공하고 싶을때 사용한다.
 
+## 보충설명
+[implicit class](https://blog.outsider.ne.kr/895)
