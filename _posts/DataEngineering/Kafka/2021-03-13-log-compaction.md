@@ -17,7 +17,7 @@ log는 head와 tail을 가지고 있다. compacted log의 head는 전통적인 �
 
 ## Log Compaction 과정
 
-![Kafka Log Compaction Process](http://cloudurable.com/images/kafka-log-compaction-process.png)
+![Kafka Log Compaction Process](https://miro.medium.com/max/624/1*zJfxuBfEw-OrRM6qEpmpzQ.png)
 
 ## Log Compaction Cleaning
 
