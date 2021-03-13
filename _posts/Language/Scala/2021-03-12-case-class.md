@@ -7,7 +7,7 @@ categories: [Language,Scala]
 
 ## Case Class
 
-> regular class와 몇가지 특성을 제외하고 비스한다. immutable data를 모델링하는데 좋다.
+> regular class와 몇가지 특성을 제외하고 비슷하다. immutable data를 모델링하는데 좋다.
 
 ### case class 정의하기
 
