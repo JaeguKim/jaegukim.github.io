@@ -26,7 +26,7 @@ Binary Tree알고리즘을 이용하면 검색이 빨라지는데, B-tree는 Bin
 위 표에서 보듯이, B-tree를 사용하면 삽입,삭제,읽기가 log(n)안에 가능하다.
 B-tree는 노드당 하나의 entry만 가지는 대신, 여러개의 entry를 갖는다. 그리고 각각의 entry는 자식노드를 갖는다.
 
-# B-tree vs B-tree
+# B-tree vs B+tree
 B-tree는 인덱싱을 하기위해서 사용되고, B+tree는 데이터를 저장하기 위해서 사용하는 data structure이다. 
 
 ![B+tree](https://cdn-images-1.medium.com/max/1600/1*6I4SEl4K-twbuHUFNSw_7Q.jpeg)
