@@ -57,7 +57,7 @@ val spark:SparkSession = SparkSession.builder()
 
 ### DataFrame Persist Syntax와 예시
 
-persist함수는 다음의 storage level을 설정가능하다. ```MEMORY_ONLY```. ```MEMORY_AND_DISK```,```MEMORY_AND_DIST_SER```, ```DIST_ONLY```, ```MEMORY_ONLY_2```, ```MEMORY_AND_DISK_2``` 등
+persist함수는 다음의 storage level을 설정가능하다. ```MEMORY_ONLY```. ```MEMORY_AND_DISK```,```MEMORY_AND_DISK_SER```, ```DISK_ONLY```, ```MEMORY_ONLY_2```, ```MEMORY_AND_DISK_2``` 등
 
 **문법**
 
