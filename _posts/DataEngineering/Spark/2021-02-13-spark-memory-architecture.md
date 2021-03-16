@@ -45,22 +45,6 @@ Executor 수를 결정하기전에, caching에 대해서 살펴보자. ```.persi
 - **MEMORY_ONLY_SER** : 데이터를 serialized format으로 저장한다. 메모리에 더많은 데이터를 저장할수 있지만 사용될때 serialize/deserialize를 해야하므로 CPU의 부하가 조금 증가할수 있다. 
 - **MEMORY_AND_DISK_SER** : 데이터를 serialized format으로 저장한다. 메모리에 들어가지 않는 데이터는 disk에 serialized format으로 저장된다. 만약 캐싱이전에 heavy processing, join/reduce 작업이 있다면 좋은 선택이될수 있다.
 
-
-
-### Task
-
-spark에 의해서 수행되는 작업의 단위로 executor JVM에서 하나의 스레드로 동작한다. Hadoop MapReduce를 시작할때는 전체 JVM을 로드하는 반면 Spark은 하나의 JVM내에서 스레드를 추가로 생성한다.
-
-
-
-### Partition
-
-데이터를 읽기위한 대부분의 메소드에서 RDD에대한 partition수를 명시할수 있다.  HDFS에서 파일을 읽을때는 Hadoop InputFormat을 사용한다. 디폴트로는 InnputFormat에 의해서 리턴된 각각의 input split은 RDD에 있는 하나의 partition으로 맵핑된다. HDFS상의 대부분의 파일에서 input split은 HDFS위에서 저장된 단일 데이터 블록당 하나로 대응된다. 데이터 블록 사이즈는 대략 64MB 또는 128MB 정도이다. 대략적으로 HDFS상의 데이터는 정확히 블록 단위로 나누어지고 처리될때 record splits 나누어진다.  text file에서는 splitting character는 newline char이지만 sequence file에서는 block end이다. 압축파일에서는 예외가 있는데 - 전체 텍스트 파일이 압축되있다면 전체파일이 하나의 input split, partition이 되므로 수동으로 repartition 해야한다.
-
-여기서 단일 partition 데이터를 처리하기위해서, spark은 하나의 task를 생성한다, task는 데이터와 가까이 위치한 task slot에서(Hadoop block location, Spark cached paritition location) 실행된다.
-
-
-
 ## Spark New Memory Architeture
 
 Spark 1.6.0 부터, 메모리 관리모델이 변경되었다. 이전 메모리 모델은 ```StaticMemoryManager``` 클래스에의해 구현되었고 이제는 legacy라 불린다. 호환성을 위해서 legacy 모델을 활성화 시킬수 있다. ```spark.memory.useLegacyMode``` 파라미터를 활성시키면 되는데, 디폴트로는 꺼져있다.
