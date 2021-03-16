@@ -25,11 +25,11 @@ critical section에는 오직 한 process만 실행되도록 하는 문제
 
 - progress : 어떤 process가 임계영역에 들어가려 할때, 무기한 연기가 되어서는 안된다.
 
-    - 자기의 임계 영역에서 실행중인 프로세스가 없고 자신의 임계영역으로 진입하려고 하는 프로세스들이 있다면, 나머지 영역에서 실행 중이지 않은 프로세스들만 임계 영역으로 진입할 프로세스를 결정하는 데 참여할 수 있으며, 이 선택은 무기한 연기될 수 없다.
+    - 자기의 임계 영역에서 실행중인 프로세스가 없고 자신의 임계영역으로 진입하려고 하는 프로세스들이 있다면, 나머지 영역(Critical Section or Leave Section)에서 실행 중이지 않은 프로세스들만 임계 영역으로 진입할 프로세스를 결정하는 데 참여할 수 있으며, 이 선택은 무기한 연기될 수 없다.
 
 - Bounded Waiting : 어떤 process가 임계영역에 들어가기 위해 대기하는 시간은 유한해야한다.
 
-    - 프로세스가 자신의 임계 영역에 진입하려는 요청을 한 후부터 그 요청이 허용될 때가지 다른 프로세스들이 자신의 임계영역에 진입하도록 허용되는 횟수는 한계 또는 제한이 있어야 한다.
+    - 프로세스가 자신의 임계 영역에 진입하려는 요청을 한 후부터 그 요청이 허용될 때까지 다른 프로세스들이 자신의 임계영역에 진입하도록 허용되는 횟수는 한계 또는 제한이 있어야 한다.
 
 ### **구현방법**
 
@@ -37,7 +37,7 @@ critical section에는 오직 한 process만 실행되도록 하는 문제
 
 - Peterson’s algorithm : progress, Bounded waiting 모두 만족
 
-    - 단점 : Budy waiting, empty while loop를 돌리면서 CPU리소스를 잡아먹게된다.
+    - 단점 : Busy waiting, empty while loop를 돌리면서 CPU 리소스를 잡아먹게된다.
 
 - Special H/W instruction : atomic operation을 코드로 구현하는 것이 아니라, 하나의 instruction으로 구현.
 
@@ -53,3 +53,5 @@ critical section에는 오직 한 process만 실행되도록 하는 문제
 2) CPU schedular가 다른 process를 schedule
 
 3) 다른 process가 signal 함수를 호출하면 ready queue로 이동 
+
+### [자세한 보충설명 link](https://stackoverflow.com/questions/33143779/what-is-progress-and-bounded-waiting-in-critical-section)

@@ -6,7 +6,7 @@ categories: [OS]
 ---
 # **CPU Scheduling Algorithm**
 
-## **Non Preemptyive Scheduling**
+## **Non Preemptive Scheduling**
 
 ### FCFS(First Come First Served)
 - 도착한 순서에 따라 차례로 CPU를 할당하는 기법

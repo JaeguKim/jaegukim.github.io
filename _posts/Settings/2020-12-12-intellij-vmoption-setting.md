@@ -2,7 +2,7 @@
 layout: post
 title: "intellij vmoption setting"
 date: 2020-12-12 23:06:00 +0900
-categories: [Setting]
+categories: [Settings]
 ---
 
 ## Windows
