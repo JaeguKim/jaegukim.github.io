@@ -20,7 +20,7 @@ categories: [Network]
 
 # JWT 기반 인증
 ![img](/assets/img/post/Network/jwtBasedAuth.png)   
-1. 유저의 로그인정보가 일치하면, 서버는 secret key를 이용하여 JWT를 생성한고 클라이언트에게 전송한다.
+1. 유저의 로그인정보가 일치하면, 서버는 secret key를 이용하여 JWT를 생성하고 클라이언트에게 전송한다.
 
 2. 클라이언트는 local storage에 JWT를 저장한다.
 
