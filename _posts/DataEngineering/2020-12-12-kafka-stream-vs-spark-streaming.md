@@ -2,7 +2,7 @@
 layout: post
 title: "Kafka Stream vs Spark Streaming"
 date: 2020-12-12 23:15:00 +0900
-categories: [DataEngineering]
+categories: [DataEngineering,Concept]
 ---
 
 ## Apache Kafka Stream

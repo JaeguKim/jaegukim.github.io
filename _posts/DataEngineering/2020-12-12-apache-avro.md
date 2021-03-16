@@ -2,7 +2,7 @@
 layout: post
 title: "Apache Avro"
 date: 2020-12-12 23:11:00 +0900
-categories: [DataEngineering]
+categories: [DataEngineering,Concept]
 ---
 
 ## 데이터 교환 방식

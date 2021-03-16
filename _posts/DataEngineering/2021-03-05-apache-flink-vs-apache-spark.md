@@ -2,7 +2,7 @@
 layout: post
 title: "Apache Flink vs Apache Spark"
 date: 2021-03-05 23:50:00 +0900
-categories: [DataEngineering]
+categories: [DataEngineering,Concept]
 ---
 
 ## Apache Flink vs Apache Spark

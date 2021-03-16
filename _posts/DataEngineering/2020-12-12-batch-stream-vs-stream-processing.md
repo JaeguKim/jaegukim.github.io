@@ -2,7 +2,7 @@
 layout: post
 title: "Batch Stream vs Stream Processing"
 date: 2020-12-12 23:12:00 +0900
-categories: [DataEngineering]
+categories: [DataEngineering,Concept]
 ---
 
 # Batch Processing vs Stream Processing

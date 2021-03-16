@@ -2,7 +2,7 @@
 layout: post
 title: "Avro vs Parquet"
 date: 2021-02-02 22:35:00 +0900
-categories: [DataEngineering]
+categories: [DataEngineering,Concept]
 ---
 
 ## Apache Avro vs Parquet

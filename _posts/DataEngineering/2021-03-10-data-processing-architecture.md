@@ -2,7 +2,7 @@
 layout: post
 title: "Data Processing Architecture"
 date: 2021-03-10 14:59:00 +0900
-categories: [DataEngineering]
+categories: [DataEngineering,Concept]
 ---
 
 ## Data Processing Architecture

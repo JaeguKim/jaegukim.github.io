@@ -2,7 +2,7 @@
 layout: post
 title: "ETL Pipeline"
 date: 2020-12-01 17:22:00 +0900
-categories: [DataEngineering]
+categories: [DataEngineering,Concept]
 ---
 
 # ETL Pipeline
