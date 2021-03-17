@@ -16,5 +16,5 @@ categories: [DataEngineering,Concept]
 | Latency | 최소한의 configuration설정으로, low latency, high throughput을 달성할수 있다. | Apache Flink와 비교하여 높은 latency를 가진다.
 | Performance | 다른 데이터 프로세싱 시스템보다 훌륭한 성능을 나타낸다. closed loop iteration operator를 사용하는데, maching learning과 graph processing을 더 빠르게 한다. | Micro-batch를 사용하다보니 Flink보다 효율적이지 못하다.
 | Fault tolerance | Chandy-Lamport distributed snapshot에 기반을 둔 fault tolerance mechanism. 경량 메커니즘이고 high throughput과 강한 consistency를 보장한다. | exactly once semantic을 보장한다.
-| Flink는 record-based 또는 custom user-defined window criteria 제공 | time-based window criteria 제공
+| Window Criteria | Flink는 record-based 또는 custom user-defined window criteria 제공 | time-based window criteria 제공
 | Memory Management | automatic memory management를 제공 | configurable memory management 제공. Spark 1.6부터는 자동화된 memory 관리도 제공
