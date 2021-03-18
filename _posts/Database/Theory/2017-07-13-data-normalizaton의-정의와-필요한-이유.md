@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Data normalizaton"
+title: "Database normalizaton"
 date: 2017-07-13
 categories: [Database,Theory]
 ---
@@ -23,7 +23,7 @@ categories: [Database,Theory]
 
 ## Fully-functional dependency
 어떤 테이블 R에 존재하는 필드들의 부분집합을 X와 Y라 할때, 
-```Y is functionally dependent on X but part of X is not functionally dependent on X then Y is fully functionally dependent on X. ```
+```Y is functionally dependent on X but  is not functionally dependent on part of X then Y is fully functionally dependent on X. ```
 Y가 X에 함수적 종속적이면서, X의 일부에는 함수적 종속적이지 않을때, Y는 X에 완전 함수적 종속적이라고 말함.
 
 ## 정규화 과정
