@@ -5,6 +5,9 @@ date:   2020-09-15
 categories: [OS]
 ---
 # **Synchronization(동기화)**
+
+> 두 프로세스가 같은 공유 데이터와 자원에 접근할 수 있도록, 프로세스들의 실행 순서를 조정하는 일
+
 - 목적 : Race Condition방지, data corruption 방지
 
 - Race condition : 특정 접근 순서에 따라서 실행결과가 달라지는 경우
@@ -23,7 +26,7 @@ critical section에는 오직 한 process만 실행되도록 하는 문제
 
 - mutual exclusion : critical section에는 오직 한 process만이 실행될수 있다.
 
-- progress : 어떤 process가 임계영역에 들어가려 할때, 무기한 연기가 되어서는 안된다.
+- progress 
 
     - 자기의 임계 영역에서 실행중인 프로세스가 없고 자신의 임계영역으로 진입하려고 하는 프로세스들이 있다면, 나머지 영역(Critical Section or Leave Section)에서 실행 중이지 않은 프로세스들만 임계 영역으로 진입할 프로세스를 결정하는 데 참여할 수 있으며, 이 선택은 무기한 연기될 수 없다.
 

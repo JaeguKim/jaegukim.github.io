@@ -39,7 +39,7 @@ traditional batch 파이프라인을 fast real-time stream pipeline을 결합하
 
 ### Kappa Architecture
 
-streaming data를 처리하기위해 사용되는 아키텍쳐이다. 한가지 기술 스택으로 batch processing과 real time processing을 처리할수 있다. stream processing engine이 유일한 데이터 transformation engine이다.
+한가지 기술 스택으로 batch processing과 real time processing을 처리할수 있다. stream processing engine이 유일한 데이터 transformation engine이다.
 
 ![Kappa Architecture Diagram](https://hazelcast.com/wp-content/uploads/2020/01/30_KappaArchitecture.png)
 

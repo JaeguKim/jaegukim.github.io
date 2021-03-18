@@ -57,7 +57,7 @@ Spark 1.6.0 부터, 메모리 관리모델이 변경되었다. 이전 메모리 
 
 2. **User Memory** : **Spark Memory** 할당한후 남은 공간이다. RDD transformation에서 사용될 자료구조를 저장할수 있다. ``` User Memory Space = (“Java Heap” – “Reserved Memory”) * (1.0 – spark.memory.fraction) = (“Java Heap” – 300MB) * 0.25. ```  만약 할당받은 공간이상을 사용하면 OOM error가 발생한다.
 
-3. **Spark Memory** : Apache Spark에 의해 관리되는 메모리 풀이다. ```Spark Memory Space = (“*Java Heap*” – “*Reserved Memory*”) * *spark.memory.fraction* =. (“*Java Heap*” – 300MB) * 0.75.``` 이 공간은 **Storage Memory**와 **Execution Memory**로 나누어진다. 이 둘의 경계는 ```spark.memory.storageFraction``` 파라미터로 설정된는데 디폴트 값은 0.5이다. 이 경계는 스태틱하지 않고 메모리 부족시 경계가 옮겨질수 있다.
+3. **Spark Memory** : Apache Spark에 의해 관리되는 메모리 풀이다. ```Spark Memory Space = (“Java Heap” – “Reserved Memory”) * spark.memory.fraction = (“Java Heap” – 300MB) * 0.75.``` 이 공간은 **Storage Memory**와 **Execution Memory**로 나누어진다. 이 둘의 경계는 ```spark.memory.storageFraction``` 파라미터로 설정된는데 디폴트 값은 0.5이다. 이 경계는 스태틱하지 않고 메모리 부족시 경계가 옮겨질수 있다.
 
    1. **Storage Memory**. 이 공간은 cached data, 일시적으로 serialized data가 저장되는 unroll에 의해서 사용된다. 또한 모든 brodcast 변수들또한 cached block에 저장된다. 모든 brodcast 변수들은 캐시에 저장되는데, **MEMORY_AND_DISK** persistence 수준으로 저장된다. 여기 저장된 데이터는 HDD로 evict 될수 있다.
    2. **Execution Memory**. 이 공간은 Spark task를 실행하는 동안 요구되는 객체들을 저장하는데 사용된다. 예를들어 shuffle intermediate buffer를 저장하는데 사용될수 있다. 또한 hash aggregation step을 위해서 hash table을 저장하는데 사용될수 있다. 충분한 메모리가 없다면 디스크로 데이터를 저장하는 기능도 수행한다. 하지만 이 공간에 있는 블락들은 다른 thread(task)에 의해서 강제로 evict될수 없다.
