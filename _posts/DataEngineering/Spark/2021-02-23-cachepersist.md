@@ -94,7 +94,7 @@ unpersist(blocking : scala.Boolean) : Dataset.this.type
 
 ### Spark Persist storage level
 
-- ```MEMORY_ONLY``` - RDD ```cache()``` 함수의 기본값이고 RDD나 DataFrame을 역직열화 포맷으로 JVM에 저장. 메모리가 충분하지 않으면 몇몇 파티션은 저장이 안되고 필요할때 다시 계산된다. RDD의 경우와 달리 ```MEMORY_AND_DISK``` 레벨보다는 느리다. 느린이유는 저장되지 않은 파티션들을 다시 계산하고 인메모리 칼럼 표현으로 계산하는 과정이 비싸기 때문이다.
+- ```MEMORY_ONLY``` - RDD ```cache()``` 함수의 기본값이고 RDD나 DataFrame을 역직열화 포맷으로 JVM에 저장. 메모리가 충분하지 않으면 몇몇 파티션은 저장이 안되고 필요할때 다시 계산된다. RDD의 경우와 달리 ```MEMORY_AND_DISK``` 레벨보다는 느리다. 느린이유는 저장되지 않은 파티션들을 다시 계산하고 인메모리 칼럼 표현으로 계산하는 과정이 비싸기 때문이다. Spark은 메모리에 LRU eviction rule을 적용한다.
 - ```MEMORY_ONLY_SER``` - ```MEMORY_ONLY``` 와 동일하지만 차이점은 RDD를 직렬화 포맷으로 저장한다는 차이가 있다. MEMORY_ONLY 보다는 더 적은 공간을 소모하지만 역직렬화를 하기 위해서 CPU cycle이 필요하다.
 - ```MEMORY_ONLY_2``` - ```MEMORY_ONLY``` 와 동일하지만 각 파티션을 두개의 클러스터 노드로 복제한다.
 - ```MEMORY_ONLY_SER_2``` - ```MEMORY_ONLY_SER``` 와 동일하지만 각 파티션을 두개의 클러스터 노드로 복제

@@ -7,7 +7,15 @@ categories: [DataEngineering,Spark]
 
 ## DataFrame
 
-> named column으로 정리된 분산 데이터 컬렉션
+![img](https://cdn.app.compendium.com/uploads/user/e7c690e8-6ff9-102a-ac6d-e4aebca50425/f4a5b21d-66fa-4885-92bf-c4e81c06d916/Image/753ace3c801b53535077d9474ecc5f1e/odi_spark_sql_databricks.jpg)
+
+> named column으로 정리된 분산 데이터 컬렉션, 모든 언어에 대한 Unified transformation interface로 transformed 된후 JVM으로 전달된다.
+
+### 내부 구현
+- 내부적으로는 RDD와 동일하다.
+- row-columnar format으로 저장된다.
+- 각각의 파티션에 각각의 컬럼은 min-max 값을 partition pruning을 위해서 저장한다.
+- standard RDD보다 압축율이 좋다.
 
 ### Optimization, Code Generation
 
