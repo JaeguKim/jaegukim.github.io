@@ -7,7 +7,7 @@ categories: [Database,PostgreSQL]
 
 ## Logical Replication
 
-replication identity(보통은 primary key) 에 기반하여, 데이터 오브젝트들과 그것들의 변화를 복제하는 방식을 말한다. 정확한 block 주소, byte-by-byte replication을 사용하는 physical replication과는 비교되는 개념이다. PostgreSQL은 physical,logical replication 둘다를 병렬적으로 지원한다. Logical replication은 data replication과 보안에 높은 수준의 통제를 허락한다.
+replication identity(보통은 primary key) 에 기반하여, 데이터 오브젝트들과 그것들의 변화를 복제하는 방법을 말한다. 정확한 block 주소, byte-by-byte replication을 사용하는 physical replication과는 비교되는 개념이다. PostgreSQL은 physical,logical replication 둘다를 병렬적으로 지원한다. Logical replication은 data replication과 보안에 높은 수준의 통제를 허락한다.
 
 Logical replication은 publisher node에대한 여러 publication을 구독하는 여러 subscriber들을 가진 publish and subscribe model을 사용한다. Subscriber들은 그들이 구독하는 publication들로부터 데이터를 받아올수 있고 연속해서 데이터를 re-publish함으로서 cascading replication 또는 더 복잡한 설정들을 할수 있다.
 

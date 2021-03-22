@@ -27,4 +27,4 @@ high level 관점에서 두가지 종류의 최적화가 존재한다. Catalyst�
 
 ## 출처
 
-[https://databricks.com/blog/2015/02/17/introducing-dataframes-in-spark-for-large-scale-data-science.html](
+[https://databricks.com/blog/2015/02/17/introducing-dataframes-in-spark-for-large-scale-data-science.html](https://databricks.com/blog/2015/02/17/introducing-dataframes-in-spark-for-large-scale-data-science.html)

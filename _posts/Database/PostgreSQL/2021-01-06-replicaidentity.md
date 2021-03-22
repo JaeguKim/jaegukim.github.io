@@ -27,6 +27,8 @@ categories: [Database,PostgreSQL]
 
     - 모든 칼럼들의 이전값들을 기록한다.
 
+    - 영향받는 row를 식별하기위해 더 많은 데이터를 생산한다. 퍼포먼스에 안좋다.
+
 - NOTHING
 
     - 이전 row에 대한 아무런 정보도 기록하지 않는다.
