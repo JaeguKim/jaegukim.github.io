@@ -1,11 +1,44 @@
 ---
 layout: post
-title: "Schema Evolution"
+title: "Schema Registry"
 date: 2021-02-25 10:10:00 +0900
 categories: [DataEngineering,Kafka]
 ---
 
-### Kafka Avro Serializer
+## Schema Registry의 필요성
+
+> 다음의 경우에 Consumer에 에러가 발생가능
+- Producer가 bad data를 보낼 경우
+- field 명이 변경될 경우
+- data format이 변경될 경우
+
+> 만약 카프카 브로커가 메시지를 검증하면 안될까?
+라고 생각할 수 있다.
+하지만 다음의 카프카의 장점을 없애버린다.
+  - Kafka는 CPU사용 없이 데이터를 읽어들인다.
+  - Kafka는 memory에 로드하는것 없이, 바이트를 읽어들일 수 있다.
+  - Kafka는 바이트를 분배한다.
+  - Kafka는 데이터가 어떤 타입인지 신경쓰지 않는다.
+
+그렇기 때문에 Schema Registry라는 독립된 컴포넌트가 필요하다.
+
+그럼 다음조건을 만족하는 Schema Registry가 필요하다.
+  - schema를 지원해야한다.
+  - evolution을 지원해야한다.
+  - 가벼워야 한다.
+
+그것이 바로 Confluent Schema Registry이다.
+
+## Confluent Schema Registry
+
+> 아파치 카프카와 더불어 다양한 플랫폼들을 연결시켜주는 오픈소스
+
+* RESTful 인터페이스 사용
+* 스키마를 관리하거나 조회하는 기능을 제공
+* Producer, Consumer는 Apache Avro 포맷 메시지를 Kafka를 통해 전달하고 받음
+* 받는 순서
+
+## Kafka Avro Serializer
 
 ![Image for post](https://miro.medium.com/max/2052/1*OortllduCOkKV6_s4dZ6fg.png)
 
@@ -17,14 +50,7 @@ categories: [DataEngineering,Kafka]
      * 직렬화 구조 : Magic Byte (1byte) + SchemaID(4byte) + Data
      * 다른 Confluent Schema Registry가 앞 5바이트를 포함해서 전달하지는 않음
 
-## Confluent Schema Registry
 
-> 아파치 카프카와 더불어 다양한 플랫폼들을 연결시켜주는 오픈소스
-
-* RESTful 인터페이스 사용
-* 스키마를 관리하거나 조회하는 기능을 제공
-* Producer, Consumer는 Apache Avro 포맷 메시지를 Kafka를 통해 전달하고 받음
-* 받는 순서
 
 ![Image for post](https://miro.medium.com/max/1904/1*6crlNRdKaB7B1P82rE10UQ.png)
 

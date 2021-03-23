@@ -5,26 +5,6 @@ date: 2020-12-12 23:11:00 +0900
 categories: [DataEngineering,Concept]
 ---
 
-## 데이터 교환 방식
-
-1. JSON, XML
-    - 모든 필드 네임이 반복되므로 용량이 많이 차지하게 된다.
-    - 파싱될때 퍼포먼스가 느리다.
-    - **데이터에 스키마가 존재하지만 스키마정보는 데이터에 존재하지 않는다.**
-    - 다른 시스템에서 스키마를 수정하면 그 시스템에 의존하는 모든 프로세스에서 코드를 변경해야한다.
-
-2. Avro, Protocol Buffers, Thrift
-    - 데이터 직렬화 시스템
-    - 스키마가 데이터에 함께 저장된다.
-    - 다른 시스템에서 스키마를 수정해면 변경사항이 반영된다.
-    - 데이터를 프로듀싱하는 에플리케이션과 데이터를 컨슈밍하는 에플리케이션이 독립적으로 업그레이드 하는것이 가능해진다.
-
-## Schema Registry
-
-- metadata를 서빙하는 레이어를 제공해줌.
-- 모든 스키마의 버전 히스토리를 보관
-- 설정된 compatibility setting에 따라서 스키마의 진화(evolution of schemas)를 가능하게 함.
-
 ## Avro
 
 >  특정 언어에 종속되지 않은 언어 중립적 데이터 직렬화 시스템
@@ -43,3 +23,7 @@ categories: [DataEngineering,Concept]
 * 자료형과 스키마
   * 기본 자료형 : null, boolean, Int, long, float, double, bytes(순차8비트 부호 없는 바이트), string (순차 유니코드 문자)
   * 복합 자료형 : array, map, record(임의의 자료형으로 명명된 필드의 집합), enum(명명된 값의 집합), fixed(고정길이의 8비트 부호 없는 바이트), union
+
+## 파일 구조
+
+![img](https://miro.medium.com/max/700/1*gMoCleXoAid7FMoJwvrJbg.png)
