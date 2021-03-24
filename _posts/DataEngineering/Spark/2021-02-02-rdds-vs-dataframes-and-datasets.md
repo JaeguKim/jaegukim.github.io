@@ -47,7 +47,6 @@ Spark 2.0부터 Dataset은 두가지 다른 성질의 API를 제공한다: **str
 ## Dataset API의 장점
 
 
-
 ### 1. Static-typing, runtime type-safety
 
 SparkSQL의 경우 runtime 전까지 문법오류를 알수 없다. 반면에 DataFrame이나 Dataset를 사용할경우 compile 시간안에 에러를 알수 있다.(시간이 절약된다.) 즉 DataFrame api의 일부가 아닌 함수를 호출하면, 컴파일러가 오류를 감지한다. 하지만 존재하지 않는 컬럼네임을 감지하는것은 런타임 전까지는 알수 없다. 
@@ -101,10 +100,9 @@ DataFrame과 Dataset API는 RDD에 비해서 공간 효율적이고 퍼포먼스
 DataFrame과 Dataset API는 Spark SQL engine을 기반으로 만들어졌기 때문에, 논리적.물리적 쿼리 플랜을 생성하기 위해서 Catalyst를 사용한다. R.Java.Scala.Python 모두 쿼리들은 같은 코드 optimizer를 실행하고, 시간.공간 효율적인 코드로 최적화된다. Dataset[T] 타입 API는 데이터 엔지니어링 테스크에 최적화되어있고, untyped Dataset[Row] 즉, DataFrame은 interactive analysis에 최적화되어있다.
 
 
-
 ![img](https://databricks.com/wp-content/uploads/2016/07/memory-usage-when-caching-datasets-vs-rdds.png)
 
-두번째 이유는 [Spark as a compiler](https://databricks.com/blog/2016/05/23/apache-spark-as-a-compiler-joining-a-billion-rows-per-second-on-a-laptop.html) 가 Dataset type JVM 객체를 이해하기 때문에,  [Encoders](https://databricks.com/blog/2015/04/28/project-tungsten-bringing-spark-closer-to-bare-metal.html) 를 사용해서 type specific JVM object를 Tungsten's internal memory representation으로 맵핑한다. 결과적으로 [Tungsten ](https://databricks.com/glossary/tungsten)Encoder는 효율적으로 JVM 객체를 직열화/역직열화 할수 있을 뿐만아니라 빠른속도로 실행될수 있는 compact byte code를 생성한다.
+두번째 이유는 [Spark as a compiler](https://databricks.com/blog/2016/05/23/apache-spark-as-a-compiler-joining-a-billion-rows-per-second-on-a-laptop.html) 가 Dataset type JVM 객체를 이해하기 때문에,  [Encoders](https://databricks.com/blog/2015/04/28/project-tungsten-bringing-spark-closer-to-bare-metal.html) 를 사용해서 type specific JVM object를 Tungsten's internal memory representation으로 맵핑한다. 결과적으로 [Tungsten](https://databricks.com/glossary/tungsten)Encoder는 효율적으로 JVM 객체를 직열화/역직열화 할수 있을 뿐만아니라 빠른속도로 실행될수 있는 compact byte code를 생성한다.
 
 
 

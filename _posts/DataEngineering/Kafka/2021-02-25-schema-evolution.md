@@ -7,12 +7,12 @@ categories: [DataEngineering,Kafka]
 
 ## Schema Registry의 필요성
 
-> 다음의 경우에 Consumer에 에러가 발생가능
+ 다음의 경우에 Consumer에 에러가 발생가능
 - Producer가 bad data를 보낼 경우
 - field 명이 변경될 경우
 - data format이 변경될 경우
 
-> 만약 카프카 브로커가 메시지를 검증하면 안될까?
+ 만약 카프카 브로커가 메시지를 검증하면 안될까?
 라고 생각할 수 있다.
 하지만 다음의 카프카의 장점을 없애버린다.
   - Kafka는 CPU사용 없이 데이터를 읽어들인다.
@@ -63,7 +63,6 @@ categories: [DataEngineering,Kafka]
 
 * Backward : 새로운 스키마로 이전 데이터를 읽는 것
   * 새로운 스키마 필드에 해당 필드에 default value가 없으면 오류 발생
-  * 새로 추가되는 필드에 default value를 지정할 때에만 스키마 등록이 허용
   * Confluent Schema Registry는 기본적으로 Backward로 동작
 * Forward : 이전 스키마에서 새로운 데이터를 읽는 것
   * 새로운 스키마에서 특정 필드가 삭제된다면, 해당 필드는 이전 스키마에 default value를 가지고 있어야함
