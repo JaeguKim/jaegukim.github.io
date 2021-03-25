@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Partitions And Segments"
+title: "Segment and Log Compaction Policy"
 date: 2020-12-03 19:01:00 +0900
 categories: [DataEngineering,Kafka]
 ---
