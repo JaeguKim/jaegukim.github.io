@@ -9,15 +9,17 @@ categories: [DataEngineering,Spark]
 
 ### 1. Transformation
 
-dataset을 함수에 전달하고 새로운 dataset을 리턴하는 작업
+> RDD를 인풋으로 받아서 한개이상의 RDD를 생산하는 함수
 
-lazy evaluation 이고 action이 실행될때 실행된다. 두가지 기본타입은 map(),filter()이다.
+lazy evaluation 이고 action이 실행될때 실행된다. 두가지 기본타입은 map(),filter(),reduceByKey()등의 계산을 적용해서 새로운 RDD를 생산한다.
 
-- Narrow transformation - 하나의 파티션에서 일부만이 결과로 반환된다.
+![img](https://blog.knoldus.com/wp-content/uploads/2019/10/Screenshot-from-2019-09-29-12-07-05.png)
+
+- Narrow transformation - 단일 파티션을 계산하기 위한 데이터는 한개의 parent RDD에서 존재한다. map(),filter()에 의해서 수행된다.
 
   ![Apache Spark Narrow Transformation Operation](https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/spark-narrow-transformation-2.jpg)
 
-- Wide transformation - 하나의 파티션에 있는 데이터가 여러 파티션에 보내질수있다. 대표적으로 groupbyKey()와 reducebyKey가 있다.
+- Wide transformation - 단일 파티션을 계산하기 위한 데이터는 여러개의 parent RDD에서 존재한다. 대표적으로 groupbyKey()와 reducebyKey가 있다.
 
 ![Spark Wide Transformation Operations](https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/spark-wide-transformation-1.jpg)
 

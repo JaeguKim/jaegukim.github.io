@@ -22,6 +22,7 @@ log는 head와 tail을 가지고 있다. compacted log의 head는 전통적인 �
 ## Log Compaction Cleaning
 
 ```min.compaction.lag.ms``` 는 메시지가 compact되기전 지나야 하는 최소한의 시간을 의미한다. Log compaction은 절대 메시지의 순서를 바꾸지 않고 단지 몇개를 삭제한다. Partition offset 또한 바뀌지 않는다.
+삭제된 레코드들은 ```delete.retention.ms```(기본 24시간) 동안 컨슈머에게 보인다.
 
 ## Kafka Log Cleaner
 

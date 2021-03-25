@@ -53,7 +53,7 @@ Spark 1.6.0 부터, 메모리 관리모델이 변경되었다. 이전 메모리 
 
 ![img](https://i0.wp.com/0x0fff.com/wp-content/uploads/2016/01/Spark-Memory-Management-1.6.0.png?w=1261&ssl=1)
 
-1. **Reserved Memory** : 이 메모리는 시스템에 의해서 예약된다, 사이즈는 하드코딩 되어있다. spark 1.6.0에서는 300MB이고 이는 spark 메모리 리전 계산에서 고려대상이 아니다. 참고로 Reserviced Memory의 1.5배 이상의 힙공간을 executor에게 제공하지 않으면 에러가 발생한다.
+1. **Reserved Memory** : 이 메모리는 시스템에 의해서 예약된다, 사이즈는 하드코딩 되어있다. spark 1.6.0에서는 300MB이고 이는 spark 메모리 리전 계산에서 고려대상이 아니다. 참고로 Reserved Memory의 1.5배 이상의 힙공간을 executor에게 제공하지 않으면 에러가 발생한다.
 
 2. **User Memory** : **Spark Memory** 할당한후 남은 공간이다. RDD transformation에서 사용될 자료구조를 저장할수 있다. ``` User Memory Space = (“Java Heap” – “Reserved Memory”) * (1.0 – spark.memory.fraction) = (“Java Heap” – 300MB) * 0.25. ```  만약 할당받은 공간이상을 사용하면 OOM error가 발생한다.
 
