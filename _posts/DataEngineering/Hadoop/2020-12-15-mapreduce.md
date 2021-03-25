@@ -54,9 +54,9 @@ map phase 도중, key-value pair를 생성하여 reducer에 전달하고, reduce
 
 ![img](https://github.com/JaeguKim/Cookbook/raw/master/images/MapReduce-Process.jpg)
 
-MapReduce의 문제점은 여러 map, reduce 프로세스를 연결하는 방법이 간단하지 않다는 것이다. 각각의 reduce process가 끝나면 데이터는 어딘가 저장되어야한다. 이는 복잡한 analytics process를 수행하는것이 힘들다는 것을 의미한다. 
+MapReduce의 문제점은 여러 map, reduce 프로세스를 연결하는 방법이 간단하지 않다는 것이다. 각각의 reduce process가 끝나면 데이터는 어딘가 저장되어야한다. 이는 복잡한 analytics process를 수행하는것이 힘들다는 것을 의미한다.
 
-두번째문제점은 streaming analytics를 수행하는것이 어렵다는것이다. 잡이 실행되기까지 시간이 소요되고, 기본 몇분을 기다리는것이 정상이다.
+두번째 문제점은 streaming analytics를 수행하는것이 어렵다는것이다. 잡이 실행되기까지 시간이 소요되고, 기본 몇분을 기다리는것이 정상이다.
 
 ## 출처 
 [https://github.com/JaeguKim/Cookbook/blob/master/sections/03-AdvancedSkills.md#How-does-mapreduce-work](https://github.com/JaeguKim/Cookbook/blob/master/sections/03-AdvancedSkills.md#How-does-mapreduce-work)
