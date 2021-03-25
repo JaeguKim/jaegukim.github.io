@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Topic Configurations"
+title: "Partitions And Segments"
 date: 2020-12-03 19:01:00 +0900
 categories: [DataEngineering,Kafka]
 ---
