@@ -42,7 +42,6 @@ categories: [OS]
 
 - process들은 하나의 queue에 영구적으로 할당됨
 
-- 상위 queue가 비어야 하위 queue들이 실행가능
 
 ### **Multilevel Feedback Queue Scheduling**
 

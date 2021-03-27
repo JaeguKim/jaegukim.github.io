@@ -10,7 +10,7 @@ categories: [Network]
 
 > HTTPS 프로토콜의 기본 포트번호는 443이다.
 
-![TLS 1.2 Handshake](https://upload.wikimedia.org/wikipedia/commons/d/d3/Full_TLS_1.2_Handshake.svg)
+<img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Full_TLS_1.2_Handshake.svg" alt="TLS 1.2 Handshake" style="zoom:150%;" />
 
 [출처](https://commons.wikimedia.org/wiki/File:Full_TLS_1.2_Handshake.svg)
 

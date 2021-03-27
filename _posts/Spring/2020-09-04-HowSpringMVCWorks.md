@@ -18,6 +18,6 @@ Spring 동작원리에 대해서 설명한 좋은 글을 발견했다. 이 글�
 
 4. 해당 컨트롤러는 흐름에서 필요한 데이터를 추출하여 요청을 처리하고 다시 Dispatcher-Servlet에게 처리된 데이터와 뷰에 관한 정보를 전달한다. 
 
-5. Dispatcher-servlet은 이러한 정보를 View-Resolver에게 전달하고, View-Reslover는 요청에 부합하는 뷰 객체를 생성하여 데이터를 리턴
+5. Dispatcher-servlet은 이러한 정보를 View-Resolver에게 전달하고, View-Resolver는 요청에 부합하는 뷰 객체를 생성하여 데이터를 리턴
 
 6. 해당 뷰에 model 객체를 적용하여 최종적으로 사용자에게 response
