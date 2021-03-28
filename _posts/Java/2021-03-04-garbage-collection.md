@@ -42,3 +42,5 @@ GC root에는 4가지가 존재한다.
 
 ![img](https://dt-cdn.net/images/gc-roots-with-memory-leak-434-3445cffac9.webp)
 
+## [자세한 추가설명](https://d2.naver.com/helloworld/1329)
+
