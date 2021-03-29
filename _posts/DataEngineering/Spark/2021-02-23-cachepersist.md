@@ -98,7 +98,7 @@ unpersist(blocking : scala.Boolean) : Dataset.this.type
 - ```MEMORY_ONLY_SER``` - ```MEMORY_ONLY``` 와 동일하지만 차이점은 RDD를 직렬화 포맷으로 저장한다는 차이가 있다. MEMORY_ONLY 보다는 더 적은 공간을 소모하지만 역직렬화를 하기 위해서 CPU cycle이 필요하다.
 - ```MEMORY_ONLY_2``` - ```MEMORY_ONLY``` 와 동일하지만 각 파티션을 두개의 클러스터 노드로 복제한다.
 - ```MEMORY_ONLY_SER_2``` - ```MEMORY_ONLY_SER``` 와 동일하지만 각 파티션을 두개의 클러스터 노드로 복제
-- ```MEMORY_AND_DISK``` - DataFrame or Dataset의 기본 행동이다. JVM상에 역직열화된 객체들이 저장된다. 요구 공간이 현재 이용가능한 공간을 초과하면, 일부 파티션들이 디스크로 저장되고 필요시 디스크에서 읽힌다. I/O 과정때문에 속도가 떨어질수있다.
+- ```MEMORY_AND_DISK``` - DataFrame or Dataset의 기본 행동이다. JVM상에 역직열화된 객체들이 저장된다. 요구 공간이 현재 이용가능한 공간을 초과하면, 일부 파티션들이 디스크로 저장되고 필요시 디스크에서 읽힌다. I/O 과정때문에 속도가 떨어질수있다. shuffle 과정에서 파일들이 생성될때 캐싱할 수 있기 때문에 주로 사용한다.
 - ```MEMORY_AND_DISK_SER```
 - ```MEMORY_AND_DISK_2```
 - ```MEMORY_AND_DISK_SER_2```

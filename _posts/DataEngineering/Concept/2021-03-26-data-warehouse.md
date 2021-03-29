@@ -11,7 +11,7 @@ categories: [DataEngineering,Concept]
 
 ## Data Lake
 
-> structured,unstructured 데이터를 저장하기 위한 중앙 저장소. 데이터를 가공없이 있는 그대로 저장하여 대시보드와 시각화에서부터 벡데이터 처리, 실시간 분석, 머신러닝까지 수행할수 있다.
+> structured,unstructured 데이터를 저장하기 위한 중앙 저장소. 데이터를 가공없이 있는 그대로 저장하여 대시보드와 시각화에서부터 빅데이터 처리, 실시간 분석, 머신러닝까지 수행할수 있다.
 
 ## Data Warehouse vs Data Lake
 
