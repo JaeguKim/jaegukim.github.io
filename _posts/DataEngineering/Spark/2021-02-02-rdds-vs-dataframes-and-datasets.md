@@ -57,7 +57,7 @@ SparkSQL의 경우 runtime 전까지 문법오류를 알수 없다. 반면에 Da
 
 ### 2. Structured and semi-structured data에게 High-level abstraction과 custom view 제공
 
-DataFrame은 semi-structured data에게 structed custom view를 제공할수 있다. 예를들어, 대용량 IoT device event dataset이 있다고 가정하고, 포맷이 JSON으로 되어있다고 하자. JSON은 semi-structued format이기 때문에 Dataset[DeviceIoTData] 라는 강한 저적타입으로 변환 될수 있다. 
+DataFrame은 semi-structured data에게 structed custom view를 제공할수 있다. 예를들어, 대용량 IoT device event dataset이 있다고 가정하고, 포맷이 JSON으로 되어있다고 하자. JSON은 semi-structued format이기 때문에 Dataset[DeviceIoTData] 라는 강한 정적타입으로 변환 될수 있다. 
 
 ``` json
 {"device_id": 198164, "device_name": "sensor-pad-198164owomcJZ", "ip": "80.55.20.25", "cca2": "PL", "cca3": "POL", "cn": "Poland", "latitude": 53.080000, "longitude": 18.620000, "scale": "Celsius", "temp": 21, "humidity": 65, "battery_level": 8, "c02_level": 1408, "lcd": "red", "timestamp" :1458081226051}

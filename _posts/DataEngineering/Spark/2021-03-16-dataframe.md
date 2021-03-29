@@ -25,6 +25,8 @@ high level 관점에서 두가지 종류의 최적화가 존재한다. Catalyst�
 
 두번째로는 Catalyst는 operation을 physical plan으로 변환하고 hand-written code보다 더 최적화된 plan에 대한 JVM bytecode를 생성한다. 예를들면 network traffic을 감소시키기 위해서 broadcast join과 shuffle join사이에 유리한 방향으로 선택한다. 그리고 비싼 객체 할당과 virtual function call을 줄이는 것과 같은 저수준 최적화를 수행한다.
 
+그리고 [Spark as a compiler](https://databricks.com/blog/2016/05/23/apache-spark-as-a-compiler-joining-a-billion-rows-per-second-on-a-laptop.html) 가 Dataset type JVM 객체를 이해하기 때문에,  [Encoders](https://databricks.com/blog/2015/04/28/project-tungsten-bringing-spark-closer-to-bare-metal.html) 를 사용해서 type specific JVM object를 Tungsten's internal memory representation으로 맵핑한다. 결과적으로 [Tungsten](https://databricks.com/glossary/tungsten)Encoder는 효율적으로 JVM 객체를 직열화/역직열화 할수 있을 뿐만아니라 빠른속도로 실행될수 있는 compact byte code를 생성한다.
+
 ## 출처
 
 [https://databricks.com/blog/2015/02/17/introducing-dataframes-in-spark-for-large-scale-data-science.html](https://databricks.com/blog/2015/02/17/introducing-dataframes-in-spark-for-large-scale-data-science.html)
