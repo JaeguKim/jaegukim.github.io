@@ -37,7 +37,7 @@ G1에 의해서 ripe 라고 식별된 region은 evacuation을 사용하여 수�
 
 G1은 실시간 collector가 아니다. 높은 확률로 pause time target을 만족하지만 완벽하게 보장하지 않는다. 이전의 collection 데이터에 기반하여, G1은 user specified target time 내에 얼마나 많은 region이 수집될수 있는지 추정한다.
 
-Note : G1은 concurrent(application thread와 함께 동작 eg. refinement, marking, cleanup) 단계와 parallel(multi threaded eg. stop the world) 단계를 모두 거친다. Full garbage collection은 여전히 single thread로 동작하지만 최적화하면 ful GC를 피할수 있어야한다.
+Note : G1은 concurrent(application thread와 함께 동작 eg. refinement, marking, cleanup) 단계와 parallel(multi threaded eg. stop the world) 단계를 모두 거친다. Full garbage collection은 여전히 single thread로 동작하지만 최적화하면 full GC를 피할수 있어야한다.
 
 ## G1 Footprint
 

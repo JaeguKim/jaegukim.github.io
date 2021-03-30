@@ -15,6 +15,10 @@ categories: [DataEngineering,Hadoop]
 - 클러스터내에 partial failure를 회복시키기 위해 사용가능
 - HBase, High-Availability MapReduce, Drill, Storm 등을 통합시킬수 있는 부분
 
+## Zookeeper vs YARN
+YARN은 resource management와 resource scheduling tool이다.
+Zookeeper는 job scheduling agent이고 YARN이 resource allocation할때 사용한다.
+
 ### Failure modes
 
 - 마스터 노드가 크래시 되면, 워커노드중에 마스터노드를 선출해야함
