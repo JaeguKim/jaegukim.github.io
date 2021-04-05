@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "fold,foldLeft,foldRight"
+title: "fold vs foldLeft vs foldRight"
 date: 2021-04-05 17:20:00 +0900
 categories: [Language,Scala]
 ---
