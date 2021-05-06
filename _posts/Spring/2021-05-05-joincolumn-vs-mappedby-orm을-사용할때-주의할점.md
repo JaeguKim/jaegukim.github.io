@@ -74,4 +74,4 @@ public void removeComment(PostComment comment) {
 Unidirectional ```@OneToMany``` 는 잘 성능이 좋지 못하므로, 피하는것이 좋다. bidirectional ```@OneToMany``` 를 사용하는것이 더 효율적이다.
 
 ## 출처
-![https://stackoverflow.com/questions/11938253/jpa-joincolumn-vs-mappedby](https://stackoverflow.com/questions/11938253/jpa-joincolumn-vs-mappedby)
+[https://stackoverflow.com/questions/11938253/jpa-joincolumn-vs-mappedby](https://stackoverflow.com/questions/11938253/jpa-joincolumn-vs-mappedby)
