@@ -36,7 +36,27 @@ critical section에는 오직 한 process만 실행되도록 하는 문제
 
 ### **구현방법**
 
-- Static Alternation : progress requirement를 만족하지 않음. 한 프로세스가 실행되고나서 다른 process가 실행되기 전까지는 무기한 연기됨.
+- Strict Alternation : 아래와 같은 방식이다.
+
+    For Process Pi
+    ``` 
+    Non - CS   
+    while (turn ! = i);   
+    Critical Section   
+    turn = j;   
+    Non - CS  
+    ```
+
+    For Process Pj
+    ```
+    Non - CS   
+    while (turn ! = j);  
+    Critical Section   
+    turn = i ;  
+    Non - CS   
+    ```
+
+    - progress requirement를 만족하지 않음. 한 프로세스가 실행되고나서 다른 process가 실행되기 전까지는 무기한 연기됨. 
 
 - Peterson’s algorithm : progress, Bounded waiting 모두 만족
 
