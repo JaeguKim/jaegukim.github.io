@@ -21,7 +21,7 @@ HDFS 커넥터는 Hive와 호환되고, 커넥터는 각각의 카프카 토픽�
 
 - **Exactly Once Delivery** : 커넥터는 HDFS에 데이터를 한번만 쓸수 있도록, write-ahead log를 사용한다. 또한 HDFS 파일들에 카프카 오프셋 정보를 인코딩하므로써, 커밋된 오프셋들을 관리한다. HDFS 파일에 오프셋 정보를 저장하는것은 failover 발생시 마지막으로 커밋된 오프셋부터 데이터를 처리할수 있도록 하기 위함이다.
 
-  > HDS에 오프셋정보를 커밋할뿐만 아니라, 오프셋 정보는 커넥터 progress 모니터링을 위해서 Kafka Connect에도 기록이 된다. 커넥터 실행 시작시, HDFS 커넥터는 HDFS 파일들로부터 오프셋 복원을 시작한다. HDFS 파일이 존재하지 않을경우, 커넥터는``` __consumer_offsets``` 에 있는 컨슈머 그룹에서 오프셋을 찾는다. 만약 거기에도 오프셋이 존재하지 않으면, 컨슈머는 ```auto.offset.reset``` 에 명시된 offset management policy를 따른다. default는 ```auto.offset.reset = earliest``` 이다.
+  > HDFS에 오프셋정보를 커밋할뿐만 아니라, 오프셋 정보는 커넥터 progress 모니터링을 위해서 Kafka Connect에도 기록이 된다. 커넥터 실행 시작시, HDFS 커넥터는 HDFS 파일들로부터 오프셋 복원을 시작한다. HDFS 파일이 존재하지 않을경우, 커넥터는``` __consumer_offsets``` 에 있는 컨슈머 그룹에서 오프셋을 찾는다. 만약 거기에도 오프셋이 존재하지 않으면, 컨슈머는 ```auto.offset.reset``` 에 명시된 offset management policy를 따른다. default는 ```auto.offset.reset = earliest``` 이다.
 
 - **Extensible Data Format** : 커넥터는 Avro와 Parquet format으로 HDFS에 쓸수 있도록 지원. Format class를 확장함으로써, 다른 포맷 데이터도 쓸수 있다.
 

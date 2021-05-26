@@ -40,7 +40,7 @@ virtual(logical) addr를 physical addr로 변환하는 역할을 한다.
 ## **Dynamic Loading** 
 각 routine이 재배치 가능 상태로 디스크에 대기하다가, 필요할때 적재. 사용되지 않는 routine은 적재 되지 않는다.
 
-## **Dynamic Llinking** 
+## **Dynamic Linking** 
 linking이 실행시간 까지 미루어짐. 라이브러리를 부르는 곳마다 stub이 생겨서 메모리를 찾는방법과 없을경우 라이브러리 적재방법을 알려준다.
 
 ## **Swapping** 

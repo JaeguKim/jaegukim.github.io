@@ -9,7 +9,7 @@ categories: [Database,Elasticsearch]
 
 ### Snapshot
 
-snapshot이란 실행중인 Elasticsearch cluster에 대한 백업이다. 모든 데이터 스티림, 인덱스들을 포함하여, 전체 클러스터에 대한 스냅샷을 생성가능하다. 특정 데이터 스트림 또는 인덱스에대한 스냅샷또한 생성가능하다.
+snapshot이란 실행중인 Elasticsearch cluster에 대한 백업이다. 모든 데이터 스트림, 인덱스들을 포함하여, 전체 클러스터에 대한 스냅샷을 생성가능하다. 특정 데이터 스트림 또는 인덱스에대한 스냅샷또한 생성가능하다.
 
 스냅샷을 생성하기전에 snapshot repository를 등록해야한다. 스냅샷은 로컬 또는 원격 저장소에서 저장이 가능하다. 원경저장소는 Amazon S3, HDFS, Microsoft Azure, Google Cloud Storage와 그리고 다른 플랫폼들에서 저장가능하다. 
 

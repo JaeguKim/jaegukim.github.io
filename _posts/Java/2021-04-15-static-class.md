@@ -24,5 +24,9 @@ Java allows a class to be defined within another class. These are called **Neste
 1. can be instantiated without outer class
 2. Unlike Inner class can access both static and non-static members of the outer class, static class can only access static members of the outer class.
 
+## [Metaspace](https://goodgid.github.io/Java-8-JVM-Metaspace/)
+
+요약하자면, Java 7버전 까지는 Permanent Generation 영역에 위치해 있었는데 Java 8 버전부터는 Metaspace영역에 위치하게 되었다. Permanent Gen은 heap의 일부였고, Metaspace는 native 영역에 일부이다.
+
 ## 출처
 [https://www.linkedin.com/pulse/static-variables-methods-java-where-jvm-stores-them-kotlin-malisciuc/](https://www.linkedin.com/pulse/static-variables-methods-java-where-jvm-stores-them-kotlin-malisciuc/)

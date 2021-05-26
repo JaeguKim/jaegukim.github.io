@@ -7,7 +7,7 @@ categories: [DataEngineering,Hadoop]
 
 ## Internal Table
 
-Hive에서 디폴트로 테이블을 생성하면, Internal table로 생성이 되고, 이를 **Managed table**이라고도 부른다. internal table들이 생성한 모든 데이터베이스들은 디폴트로 hdfs의  ```/user/hive/warehouse``` 경로에 저장된다. 디폴트 저장 허브를 **hive.metastore.warehouse.dir** 에서 변경할수 있다. Internal table(Managed table)들을 drop하게 되면, 모든 메타데이터와 테이블 데이터들이 hdfs에서 영구적으로 삭제된다. Hive외부에서 데이터가 이용되어야 하거나, hdf상의 다른 하둡 유틸리티들에 의해서 사용되어야한다면, external table을 고려해야한다.
+Hive에서 디폴트로 테이블을 생성하면, Internal table로 생성이 되고, 이를 **Managed table**이라고도 부른다. internal table들이 생성한 모든 데이터베이스들은 디폴트로 hdfs의  ```/user/hive/warehouse``` 경로에 저장된다. 디폴트 저장 허브를 **hive.metastore.warehouse.dir** 에서 변경할수 있다. Internal table(Managed table)들을 drop하게 되면, 모든 메타데이터와 테이블 데이터들이 hdfs에서 영구적으로 삭제된다. Hive외부에서 데이터가 이용되어야 하거나, hdfs상의 다른 하둡 유틸리티들에 의해서 사용되어야한다면, external table을 고려해야한다.
 
 ### Internal table에 대한 키포인트
 
