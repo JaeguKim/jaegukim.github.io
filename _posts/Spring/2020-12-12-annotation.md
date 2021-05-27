@@ -106,11 +106,11 @@ class AnimalConfigUnitTest {
 ## @Retention
 어느 시점까지 어노테이션의 메모리를 가져갈지 설정
 
-- SOURCE : 어노테이션을 사실상 comment로 사용, 컴파일러가 컴파일할때 해당 어노테니션의 메모리를 버림
+- SOURCE : 어노테이션을 사실상 comment로 사용, 컴파일러가 컴파일할때 해당 어노테이션의 메모리를 버림
 
 - CLASS : 컴파일러가 컴파일에서는 어노테이션의 메모리를 가져가지만 런타임시에는 사라짐. 
 
-- RUNTIME : 어노테이션을 런타임시에까지 사용가능. JVM이 자바바이트코드가 담긴 class파일에서 런타임환경을 구성하고 런타임을 종료할때까지 메모리는 살아있음.
+- RUNTIME : 어노테이션을 런타임시까지 사용가능. JVM이 자바바이트코드가 담긴 class파일에서 런타임환경을 구성하고 런타임을 종료할때까지 메모리는 살아있음.
 
 ## @DependsOn
 
@@ -141,7 +141,7 @@ public class Config {
 }
 ```
 
-## @Inheried 
+## @Inherited 
 annotated classes의 sub classes들이 super class의 annotation과 같은 annotation을 갖게된다.
 
 예시는 다음과 같다.
