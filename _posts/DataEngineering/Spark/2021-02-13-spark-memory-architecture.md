@@ -67,10 +67,9 @@ Spark 1.6.0 부터, 메모리 관리모델이 변경되었다. 이전 메모리 
    - Storage Memory 풀에서 공간이 남아있을때. 이 경우 storage memory 사이즈를 감소시키고 Execution memory 사이즈를 증가시킨다.
    - Storage Memory 공간크기가 초기 Storage Memory 설정공간을 초과하고 이 공간이 전부 사용되고 있을때. 이 경우 Storage Memory 크기가 초기 사이즈가 될때까지 데이터를 evict할수 있다.
 
-   반대로 **Storage Memory** 또한 **Execution Memory** 공간을 빌릴수 있다.
+   반대로 **Storage Memory** 또한 **Execution Memory** 공간을 빌릴수 있다. 이때 **Execution Memory**에 빈공간이 반드시 존재해야 한다.
 
-
-
+   만약 Spark cache를 사용한다면, executor에 캐싱된 데이터의 전체 용량은 최소 초기 Storage Memory 리젼 크기만큼 될것이다. 우리는 storage region 크기가 최소 초기 크기만큼은 된다는 것을 보장할 수 있다. 그 이유는 초기 크기보다 더 작아지도록 하면서, 데이터를 evict 할수는 없기 때문이다. 그러나 만약 Execution Memory가 이미 초기 사이즈를 넘어섰고, 그후에 storage memory에 데이터를 채워넣었다면, Execution memory에 있는 데이터를 강제로 evict할수는 없게된다, 따라서 실행하는 동안 storage memory 리젼은 초기 사이즈보다 더 적은 크기를 가질 수 밖에 없다.
 
 
 ## 출처

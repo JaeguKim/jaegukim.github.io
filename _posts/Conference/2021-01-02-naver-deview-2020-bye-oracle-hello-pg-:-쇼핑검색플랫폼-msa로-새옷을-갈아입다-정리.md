@@ -5,8 +5,6 @@ date: 2021-01-02 15:51:00 +0900
 categories: [Conference]
 ---
 
-## [NAVER DEVIEW 2020] "Bye Oracle, Hello PG: 쇼핑검색플랫폼, MSA로 새옷을 갈아입다." 정리
-
 ### 기존의 문제점
 
 - 오라클 데이터베이스가 Single Point Of Failure

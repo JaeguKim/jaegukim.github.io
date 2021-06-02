@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "4-way-handshake에서 마지막 ACK 가 유실된다면?"
+title:  "4-way-handshake에서 마지막 ack가 필요한 이유"
 date:   2020-09-07
 categories: [Network]
 ---
@@ -24,71 +24,10 @@ categories: [Network]
 > CLOSED  
 위는 4-way-handshake을 요약한 그림이다.
 
-만약 B to A로 가는 마지막 FIN이 유실된다면 어떤 일이 발생할까? B는 ACK를 받지 않았으므로 ACK를 받을때까지 FIN을 재전송 할것이다. A가 결국 FIN을 받게되면 TIME_WAIT상태에 돌입한다.
+왜 마지막 ACK가 필요한가? 만약 마지막 ACK가 없다고 가정해보자. 먼저 두가지 상황이 생길수 있다.
 
-> A -----FIN-----> B  
-> FIN_WAIT_1       CLOSE_WAIT  
-> A <----ACK------ B  
-> FIN_WAIT_2  
->  
-> (B can send more data here, this is > half-close state)  
->  
-> A  X<--FIN------ B  
-> FIN_WAIT_2       LAST_ACK  
-> (timeout waiting for ACK)  
-> A <----FIN------ B    
-> TIME_WAIT  
-> A -----ACK-----> B  
-> |                CLOSED  
-> 2MSL Timer  
-> |  
-> CLOSED  
+- 첫번째 상황은 B에서 A로 가는 FIN이 도착한 경우이다. 이 경우에는 A 입장에서는 TIME_WAIT 상태에 돌입후 2MSL 시간후에 연결이 좋료 된다. 하지만 B는 ACK를 전달받지 못해서 무기한 대기한다. 
 
-여기서 마지막 ACK가 유실된다면? B는 A가 FIN을 받지 않았다고 생각할것이고 FIN을 재전송할 것이다. 즉, B의 관점에서 보면 A가 FIN이 유실되었을 때와 같다. 하지만 A관점에서보면 다른데, A는 TIME_WAIT상태 or CLOSED 상태에 있기 때문이다. A가 TIME_WAIT 시점에서 B로부터 FIN을 받게되면 A는 ACK를 재전송할것이다.
+- 두번째 상황은 B에서 A로 가는 FIN이 유실된경우이다. 이 경우에는 A 입장에서는 TIME_WAIT 상태에 돌입할 수 없으므로, FIN_WAIT_2 상황에서 무기한 대기한다. 
 
-아래그림은 TIME_WAIT 상태에서 B로부터 FIN이 날라온 경우이다.
-
-> A -----FIN-----> B  
-> FIN_WAIT_1       CLOSE_WAIT  
-> A <----ACK------ B  
-> FIN_WAIT_2  
->
-> (B can send more data here, this is > half-close state)  
-> 
-> A <----FIN------ B  
-> TIME_WAIT        LAST_ACK  
-> A -----ACK-->X   B  
-> TIME_WAIT        LAST_ACK  
->                 (timeout waiting for > ACK)  
-> A <----FIN------ B  
-> A -----ACK-----> B  
-> |                CLOSED  
-> 2MSL Timer  
-> |  
-> CLOSED  
-
-만약 A가 CLOSED 상태에 있으면, RESET을 전송할것이다. 
-
-둘중에 어떤 상황이 됐건, B는 연결을 종료할수 있게된다.
-
-아래그림은 CLOSED 상태에서 B로부터 FIN이 날아온 경우이다.
-
-> A -----FIN-----> B  
-> FIN_WAIT_1       CLOSE_WAIT  
-> A <----ACK------ B  
-> FIN_WAIT_2  
->   
-> (B can send more data here, this is > half-close state)  
-> 
-> A <----FIN------ B  
-> TIME_WAIT        LAST_ACK  
-> A -----ACK-->X   B  
-> TIME_WAIT        LAST_ACK  
-> |  
-> 2MSL Timer  
-> |  
-> CLOSED  
->                 (timeout waiting for > ACK)  
-> A <----FIN------ B  
-> A -----RST-----> B  
->                  CLOSED  
+마지막 ACK가 존재한다면 첫번째, 두번째 상황에서 해결이 가능하다. B는 ACK를 전달받을 수 있고, A는 TIME_WAIT에 도달할때까지 FIN(A->B)을 재전송해서, 결국은 FIN(B->A)를 수신할 수 있기 때문이다.
