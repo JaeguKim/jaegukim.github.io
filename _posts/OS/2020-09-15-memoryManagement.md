@@ -46,7 +46,7 @@ linking이 실행시간 까지 미루어짐. 라이브러리를 부르는 곳마
 ## **Swapping** 
 일시적으로 process를 main memory에서 disk로 이동시켰다가 다시 memory로 이동시키는것.
 * 목적 : process들을 실행하는데 필요한 공간이 physical memory공간을 초과할때 사용
-* roll in, roll out : 더 높은 우선순위의 process가 swap-in 되고 더 낮은 우선순위의 procss가 swap-out 되는것
+* roll in, roll out : 더 높은 우선순위의 process가 swap-in 되고 더 낮은 우선순위의 process가 swap-out 되는것
 
 ## **Contiguous Memory Allocation 기법: 연속적으로 memory 할당**
 - First Fit : 충분히 큰 첫번째 구멍에 할당
