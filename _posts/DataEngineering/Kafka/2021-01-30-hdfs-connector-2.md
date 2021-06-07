@@ -25,7 +25,7 @@ HDFS 커넥터는 Hive와 호환되고, 커넥터는 각각의 카프카 토픽�
 
 - **Extensible Data Format** : 커넥터는 Avro와 Parquet format으로 HDFS에 쓸수 있도록 지원. Format class를 확장함으로써, 다른 포맷 데이터도 쓸수 있다.
 
-- **Hive Integration** : Hive integration을 지원하며, 커텍터는 자동으로 HDFS에 저장된 파일들을 대상으로 , 각각의 토픽에 대한 external partitioned table을 생성한다.
+- **Hive Integration** : Hive integration을 지원하며, 커넥터는 자동으로 HDFS에 저장된 파일들을 대상으로 , 각각의 토픽에 대한 external partitioned table을 생성한다.
 
 - **Secure HDFS and Hive Metastore Support** : Kerberos authentication을 지원하고 secure HDFS와 Hive metastore와 동작한다.
 
@@ -47,7 +47,7 @@ HDFS 커넥터는 Hive와 호환되고, 커넥터는 각각의 카프카 토픽�
 
 ## 상세 configuration 설정
 
-- ```partition.duration.ms``` : 단일 파이션 디렉토리에 저장 object들의 최대 granularity를 정의, 예를들면 ```partition.duration.ms=600000```로 정의하면 디렉토리에 10분미만의 레코드들이 저장된다.
+- ```partition.duration.ms``` : 단일 파티션 디렉토리에 저장 object들의 최대 granularity를 정의, 예를들면 ```partition.duration.ms=600000```로 정의하면 디렉토리에 10분미만의 레코드들이 저장된다.
 
 [https://docs.confluent.io/kafka-connect-hdfs/current/configuration_options.html](https://docs.confluent.io/kafka-connect-hdfs/current/configuration_options.html)
 
