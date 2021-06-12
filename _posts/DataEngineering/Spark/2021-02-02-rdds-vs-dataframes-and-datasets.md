@@ -8,7 +8,7 @@ categories: [DataEngineering,Spark]
 ## Resilient Distributed Dataset(RDD)
 
 RDD는 데이터의 immutable distributed collection, 클러스터의 노드들에 분할되어있고 병렬적으로 처리됨.
-
+여러 분산 노드에 걸쳐서 저장되는 변경이 불가능한 데이터(객체)의 집합으로 각각의 RDD는 여러개의 파티션으로 분리가 됩니다. 즉, 스프크 내에 저장된 데이터를 RDD라고 하고, 변경이 불가능하며, 변경을 하려면 새로운 데이터 셋을 생성해야 합니다.
 
 
 ### 언제 RDD를 사용하는가?
@@ -115,3 +115,5 @@ DataFrame과 Dataset API는 Spark SQL engine을 기반으로 만들어졌기 때
 ## 출처
 
 [https://databricks.com/blog/2016/07/14/a-tale-of-three-apache-spark-apis-rdds-dataframes-and-datasets.html](https://databricks.com/blog/2016/07/14/a-tale-of-three-apache-spark-apis-rdds-dataframes-and-datasets.html)
+
+[https://bcho.tistory.com/1027](https://bcho.tistory.com/1027)
