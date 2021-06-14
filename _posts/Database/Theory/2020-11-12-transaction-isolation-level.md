@@ -14,7 +14,7 @@ categories: [Database,Theory]
 | Read Uncommited (Level 0)  | - 트랜잭션 수행 중이거나 아직 commit 되지 않은 데이터를 다른 트랜잭션에서 Read 하는 것을 허용<br>- Dirty Read, Non Repeatable Read, Phantom Read 발생 가능  |
 | Read Commited (Level 1)  | - 트랜잭션 수행이 완료되고 commit 된 데이터만 다른 트랜잭션에서 Read하도록 허용<br>- Non Repeatable Read, Phantom Read 발생 가능<br>- 일반적으로 DBMS에서 Default로 설정하는 레벨  |
 | Repeatable Read (Level 2)  | - 특정 트랜잭션에서 읽고 있는 데이터는 다른 트랜잭션에서 수정/삭제 (Update/Delete)가 불가능하다.<br> - 삽입(Insert)은 가능하다.<br>- Phantom Read 발생 가능   |
-| Serializable (Level 3)| - 특정 트랜잭션에서 읽고 있는 데이터는 다른 트랜잭션에서 수정/삭제/삽입 모두 불가능하다.<br>- 모든 이상 현상 방지 가능<br>- 하지만 그만큼 동시성이 떨어져서 성능이 하락함 |
+| Serializable (Level 3)| - <br>- 모든 이상 현상 방지 가능<br>- 하지만 그만큼 동시성이 떨어져서 성능이 하락함 |
 
 ## 이상 현상 종류
 
