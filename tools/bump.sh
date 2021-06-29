@@ -1,16 +1,23 @@
 #!/usr/bin/env bash
 #
-# 1. Bump latest version number to files:
-#   - _sass/jekyll-theme-chirpy.scss
-#   - assets/js/.copyright.js
-#   - assets/js/dist/*.js (will be built by gulp later)
-#   - jekyll-theme-chirpy.gemspec
-#   - Gemfile.lock
-#   - package.json
+# How does it work:
 #
-# 2. Create a git-tag on release branch
+#   1. Bump latest version number to files:
+#     - _sass/jekyll-theme-chirpy.scss
+#     - _javascript/copyright
+#     - assets/js/dist/*.js (will be built by gulp later)
+#     - jekyll-theme-chirpy.gemspec
+#     - package.json
 #
-# 3. Build a RubyGems package base on the latest git-tag
+#   2. Create a git-tag on release branch
+#
+#   3. Build a RubyGems package base on the latest git-tag
+#
+#
+# Usage:
+#
+#   Switch to 'master' branch or 'X-Y-stable' branch with argument '-m',
+#`  and then run this script.
 #
 #
 # Requires: Git, Gulp, RubyGems
@@ -21,12 +28,10 @@ manual_release=false
 
 ASSETS=(
   "_sass/jekyll-theme-chirpy.scss"
-  "assets/js/.copyright"
+  "_javascript/copyright"
 )
 
 GEM_SPEC="jekyll-theme-chirpy.gemspec"
-
-GEM_LOCK="Gemfile.lock"
 
 NODE_META="package.json"
 
@@ -43,9 +48,9 @@ check() {
     exit -1
   fi
 
-  # ensure the current branch is 'master'
-  if [[ "$(git branch --show-current)" != "master" && manual_release == "false" ]]; then
-    echo "Error: This operation must be performed on the 'master' branch!"
+  # ensure the current branch is 'master' or running in 'manual' mode
+  if [[ "$(git branch --show-current)" != "master" && $manual_release == "false" ]]; then
+    echo "Error: This operation must be performed on the 'master' branch or '--manual' mode!"
     exit -1
   fi
 
@@ -75,17 +80,10 @@ _bump_node() {
     $NODE_META
 }
 
-_bump_gemlock() {
-  sed -i \
-    "s/jekyll-theme-chirpy ([[:digit:]]\+\.[[:digit:]]\+\.[[:digit:]]\+/jekyll-theme-chirpy ($1/" \
-    $GEM_LOCK
-}
-
 bump() {
   _bump_assets "$1"
   _bump_gemspec "$1"
   _bump_node "$1"
-  _bump_gemlock "$1"
 
   if [[ -n $(git status . -s) ]]; then
     git add .
