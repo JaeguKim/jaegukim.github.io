@@ -25,7 +25,7 @@ description: >-                        # used by seo meta and the atom feed
   and focuses on text presentation.
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
-url: ''
+url:
 
 author: JaeguKim                  # change to your full name
 
@@ -71,7 +71,7 @@ google_analytics:
 #     light  - Use the light color scheme
 #     dark   - Use the dark color scheme
 #
-theme_mode:   # [light|dark]
+theme_mode:  # [light|dark]
 
 # The CDN endpoint for images.
 # Notice that once it is assigned, the CDN url
@@ -87,8 +87,8 @@ avatar: https://avatars.githubusercontent.com/u/22807942?s=460&u=cc1d822a8be2c87
 toc: true
 
 disqus:
-  comments: false  # boolean type, the global switch for posts comments.
-  shortname: ''    # Fill with your Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
+  comments: true  # boolean type, the global switch for posts comments.
+  shortname: 'jaegukim'    # Fill with your Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
 
 paginate: 10
 
