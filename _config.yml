@@ -87,7 +87,7 @@ avatar: https://avatars.githubusercontent.com/u/22807942?s=460&u=cc1d822a8be2c87
 toc: true
 
 disqus:
-  comments: true  # boolean type, the global switch for posts comments.
+  comments: false  # boolean type, the global switch for posts comments.
   shortname: 'jaegukim'    # Fill with your Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
 
 paginate: 10
