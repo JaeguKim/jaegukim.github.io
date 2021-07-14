@@ -71,3 +71,43 @@ export PATH="$PATH:/Users/jaegu/anaconda3/bin"
 | 파일에 있는 내용 복사 | ``` cat original.txt >> new.txt ```
 | non-empty 디렉토리 삭제 | ``` rm -rf [folder name] ```
 | process 죽이기 | ``` kill [pid] ```
+
+## SED : Stream EDitor 
+
+삽입,삭제,검색,replace(substitution) 가능
+
+### 1. Replacing or substituting string
+
+아래 커멘드는 "unix" 단어를 "linux"단어로 대체하는 커멘드이다.
+
+``` sh
+sed 's/unix/linux/' geekfile.txt
+```
+
+여기서 's'는 substitution 작업을 의미한다. 그리고 '/' 는 delimiter이다. 그리고 unix는 search pattern이고 linux는 replacement pattern이다. 기본적으로 패턴이 일치하는 첫번째 경우에 대해서만 작업이 수행되다.
+
+#### 2. Replacing the nth occurrence of a pattern in a line
+
+``` sh
+sed 's/unix/linux/2' geekfile.txt
+```
+
+위는 두번째로 패턴이 일치하는 경우에 대해서 unix를 linux로 대체한다.
+
+#### 3. Replacing all the occurrence of the pattern in line
+
+패턴이 일치하는 모든 경우에 대해서, 작업을 수행하고 싶다면 다음과 같이 할수 있다.
+
+``` sh
+sed 's/unix/linux/g' geekfile.txt
+```
+
+#### 4. Replacing from nth occurrence to all occurrences in a line
+
+다음은 3번째 부터 끝까지 일치하는 패턴에 대해서 작업을 수행하는 코드이다.
+
+``` sh
+sed 's/unix/linux/3g' geekfile.txt
+```
+
+#### [etc](https://www.geeksforgeeks.org/sed-command-in-linux-unix-with-examples/)
