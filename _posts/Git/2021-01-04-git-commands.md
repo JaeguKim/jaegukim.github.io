@@ -11,6 +11,19 @@ $ git config — global user.name “Igor Santos”
 $ git config — global user.email “igor.santos@example.com”
 ```
 
+## local username, email 설정
+
+``` sh
+$ git config --local user.name "jaegoo.kim"
+$ git config --local user.email "rlaworn1993@gmail.com"
+```
+
+## git config list
+
+``` sh
+$ git config --local --list
+```
+
 ## 직전 commit의 committer name, email 변경
 
 ``` sh
