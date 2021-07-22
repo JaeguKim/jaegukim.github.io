@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Replicas"
+title: "ReplicaSet"
 date: 2021-07-22 11:18:00 +0900
 categories: [Kubernetes]
 ---
