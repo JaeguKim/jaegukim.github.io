@@ -59,6 +59,7 @@ export PATH="$PATH:/Users/jaegu/anaconda3/bin"
 
 | 설명 | 커멘드 
 | --- | ---
+| 존재하지 않는 중간의 디렉토리를 자동으로 생성 | ``` mkdir -p [directory] ```
 | 파일삭제 | ``` rm [file name] ```
 | hidden file 리스팅 | ``` ls -a ```
 | Bash history 검색 | ``` history ```
