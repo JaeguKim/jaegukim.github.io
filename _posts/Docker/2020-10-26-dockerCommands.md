@@ -31,3 +31,4 @@ categories: [Docker]
 | 기존의 컨테이너에게 추가적인 커멘드 실행 | ```  docker container exec -it -run [ADDITIONAL COMMAND] ```
 | 다른 Dockerfile을 명시하여 build | ``` docker build -f some-dockerfile ```
 | 현재경로를 컨테이너 내에 /site경로로 마운트 | ``` docker run -p 80:4000 -v $(pwd):/site bretfisher/jekyll-serve ```
+| 이미지 빌드시 ARG 전달 하는 예시 | ``` docker build --build-arg base_img=spark_img .```
