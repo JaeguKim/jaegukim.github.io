@@ -39,6 +39,15 @@ rebase의 장점은 좀더 깨끗한 히스토리를 만든다. 단점은 수많
 
 merge의 장점은 정확이 있었던 작업 기록을 좀더 자세히 알수 있다. 머지 커밋이 기록이 남게 되어, 히스토리가 좀 지저분해진다.
 
+## REBASE 순서
+
+``` sh
+(사전에 작업한 내용 commit)
+git fetch [rebase 할 branch]
+git rebase [rebase 할 branch]
+git push origin master
+```
+
 ## 요약
 
 git 공식문서의 일반적인 해답을 정리하자면, 어딘가에 push로 내보낸 커밋에 대해서는 절대 rebase를 하지 말아야 한다.
