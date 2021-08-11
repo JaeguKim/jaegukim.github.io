@@ -113,3 +113,15 @@ sed 's/unix/linux/3g' geekfile.txt
 ```
 
 #### [etc](https://www.geeksforgeeks.org/sed-command-in-linux-unix-with-examples/)
+
+## Shell file 실행하기
+
+``` sh
+$ chmod +x script-name-here.sh
+$ ./script-name-here
+또는
+$ sh script-name-here.sh
+또는
+$ bash script-name-here.sh
+```
+
