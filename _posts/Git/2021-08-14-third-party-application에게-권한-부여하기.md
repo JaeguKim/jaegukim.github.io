@@ -13,5 +13,3 @@ SmartGit에서 Preferences에서 Github Hosting Provider를 설정하다가, 실
 2. 왼쪽 바에 Applications 탭을 클릭한다.
 3. authorized OAuth App 탭을 누르고, 권한을 부여할 앱을 클릭한다.
 4. 해당 앱에게 권한을 부여한다. 
-
-https://github.com/settings/connections/applications/
