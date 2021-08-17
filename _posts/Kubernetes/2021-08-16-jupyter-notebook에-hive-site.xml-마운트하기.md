@@ -51,3 +51,4 @@ extraVolumeMounts:
     - name: metastore-secret
     mountPath: /opt/spark/conf/hive-site.xml
     subPath: hive-site.xml
+```
