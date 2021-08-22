@@ -31,8 +31,15 @@ git commit --amend --author="[NAME] <EMAIL>"
 ```
 
 ## Git ignore 적용하기
+
 ``` sh
 git rm -r --cached .
 git add .
 git commit -m "Apply .gitignore"
+```
+
+## commit sha 정보 조ㅣ
+
+``` sh
+git show [commit sha]
 ```
