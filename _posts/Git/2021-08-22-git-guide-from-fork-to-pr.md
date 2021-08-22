@@ -33,7 +33,7 @@ git checkout -b [branch name]
 
 ### 3. How to PR
 
-1. [Sync forked repository with original repository](#How to sync fored repoitory With original repository)
+1. [Sync forked repository with original repository](#How-to-sync-fored-repoitory-With-original-repository)
 
 2. Go to origin repository and make pull request
 
