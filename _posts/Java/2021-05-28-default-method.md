@@ -2,7 +2,7 @@
 layout: post
 title: "Default Method"
 date: 2021-05-28 14:17:00 +0900
-categories: [Java]
+categories: [Language,Java]
 ---
 
 Java에서는 인터페이스에 디폴트 메소드를 정의할 수 있다. 

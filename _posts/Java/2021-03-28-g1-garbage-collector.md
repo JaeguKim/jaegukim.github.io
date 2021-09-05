@@ -2,7 +2,7 @@
 layout: post
 title: "G1 Garbage Collector"
 date: 2021-03-28 14:18:00 +0900
-categories: [Java]
+categories: [Language,Java]
 ---
 
 ## G1 Garbage Collector

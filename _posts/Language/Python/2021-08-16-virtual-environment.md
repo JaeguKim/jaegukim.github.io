@@ -2,7 +2,7 @@
 layout: post
 title: "virtual environment"
 date: 2021-08-16 22:49:00 +0900
-categories: [Python]
+categories: [Language,Python]
 ---
 
 ## venv 이용하는 방법

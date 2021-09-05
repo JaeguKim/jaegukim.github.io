@@ -2,7 +2,7 @@
 layout: post
 title: "Method Signature"
 date: 2020-11-16 14:32:00 +0900
-categories: [Java]
+categories: [Language,Java]
 ---
 
 # Method Signature란?

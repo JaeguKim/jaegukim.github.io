@@ -2,7 +2,7 @@
 layout: post
 title: "Wheel File Type"
 date: 2021-08-11 10:54:00 +0900
-categories: [Python]
+categories: [Language,Python]
 ---
 
 ### Different Types of Wheels

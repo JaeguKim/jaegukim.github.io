@@ -2,7 +2,7 @@
 layout: post
 title: "Constructor"
 date: 2021-03-11 11:42:00 +0900
-categories: [Java]
+categories: [Language,Java]
 ---
 
 ## Super() 키워드가 자동으로 호출되는 경우

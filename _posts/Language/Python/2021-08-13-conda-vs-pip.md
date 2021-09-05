@@ -2,7 +2,7 @@
 layout: post
 title: "Conda vs Pip"
 date: 2021-08-13 21:03:00 +0900
-categories: [Python]
+categories: [Language,Python]
 ---
 
 ## Comparison of conda and pip

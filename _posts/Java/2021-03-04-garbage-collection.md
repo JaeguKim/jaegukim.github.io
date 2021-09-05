@@ -2,7 +2,7 @@
 layout: post
 title: "Garbage Collection"
 date: 2021-03-04 22:08:00 +0900
-categories: [Java]
+categories: [Language,Java]
 ---
 
 ## Garbage Collection 동작방식

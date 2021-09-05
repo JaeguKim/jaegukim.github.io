@@ -2,7 +2,7 @@
 layout: post
 title: "Java에서 array의 타입"
 date: 2020-12-01 13:37:00 +0900
-categories: [Java]
+categories: [Language,Java]
 ---
 
 자바에서 배열은 primitive type인가 아니면 object인가?

@@ -2,7 +2,7 @@
 layout: post
 title: "Binary Numeric Promotion"
 date: 2020-11-22 10:56:00 +0900
-categories: [Java]
+categories: [Language,Java]
 ---
 
 # Binary Numeric Promotion

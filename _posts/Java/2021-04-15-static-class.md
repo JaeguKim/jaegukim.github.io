@@ -2,7 +2,7 @@
 layout: post
 title: "static"
 date: 2021-04-15 11:28:00 +0900
-categories: [Java]
+categories: [Language,Java]
 ---
 
 ## Static Method
