@@ -72,10 +72,9 @@ export PATH="$PATH:/Users/jaegu/anaconda3/bin"
 | 파일에 있는 내용 복사 | ``` cat original.txt >> new.txt ```
 | non-empty 디렉토리 삭제 | ``` rm -rf [folder name] ```
 | process 죽이기 | ``` kill [pid] ```
-| 디렉토리 내에 있는 모든 파일/디렉토리 복사 | ``` cp -r [source dir] 
+| 디렉토리 내에 있는 모든 파일/디렉토리 복사 | ``` cp -r [source dir] ```
 | 파일 이름 변경 | ``` mv old-name new-name ```
-| 파일 옮기기 | ``` mv old-file new-file ```linuxttt
-[dest dir]```
+| 파일 옮기기 | ``` mv old-file new-file ```
 
 ## SED : Stream EDitor 
 
