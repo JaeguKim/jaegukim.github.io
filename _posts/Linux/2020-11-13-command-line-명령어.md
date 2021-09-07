@@ -67,6 +67,7 @@ export PATH="$PATH:/Users/jaegu/anaconda3/bin"
 | hidden file 리스팅 | ``` ls -a ```
 | iTerm2 horizonal split | ``` cmd + shift + d ```
 | iTerm2 vertical split | ``` cmd + d ```
+| iTerm vertial pane navigation | ```cmd + [ or ] ```
 | 현재 절대경로 표시 | ``` pwd ```
 | ssh 접속후 disconnect | ``` exit ``` or ``` Ctrl - d ```
 | 파일에 있는 내용 복사 | ``` cat original.txt >> new.txt ```
