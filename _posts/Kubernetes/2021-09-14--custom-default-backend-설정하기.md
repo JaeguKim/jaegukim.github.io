@@ -6,33 +6,40 @@ categories: [Kubernetes]
 ---
 
 ## Intro
-custom error page를 띄우기 위해서, nginx-ingress-controller 차트에 custom default backend를 설정해야한다.
-custom-default-backend는 nginx-ingress-controller에서 발생한 http error를 대신 처리해줄 리소스를 의미한다.
-이때 custom-default-backend에 컨테이너 이미지를 설정해주어야 한다.
+
+custom error page를 띄우기 위해서, nginx-ingress-controller 차트에 custom default backend를 설정해야한다. custom-default-backend는 nginx-ingress-controller에서 발생한 http error를 대신 처리해줄 리소스를 의미한다. 이때 custom-default-backend에 컨테이너 이미지를 설정해주어야 한다.
 
 ## 1. Dockerfile 빌드후 푸시하기
+
 1. 먼저 아래의 도커파일을 생성한다.
-``` Dockerfile
+
+```Dockerfile
 FROM quay.io/kubernetes-ingress-controller/custom-error-pages-amd64:0.4
 
 COPY content /www
 ```
+
 2. content 디렉토리 생성후, 원하는 에러페이지를 위치시킨다. 예를들어 403.html, 503.html 등등을 위치시킨다.
 3. 도커파일을 빌드후 푸시한다.
 
 ## 2. ingress-nginx-controller에 defaultBackend 적용하기
-아래 두가지 use-case에 따라서 defaultBackend를 설장할 수 있다.
-여기서는 version ```3.34.0```, appVersion: ```0.47.0```을 기준으로 설명한다.
+
+아래 두가지 use-case에 따라서 defaultBackend를 설정할 수 있다. 여기서는 version `3.34.0`, appVersion: `0.47.0`을 기준으로 설명한다.
 
 ### 2-1. 전체 namespace에 있는 Ingress에 대해서 default backend 지정하고 싶은 경우
-nginx-ingress-controller 헬름차트를 아래와 같이 수정한다. 
+
+nginx-ingress-controller 헬름차트를 아래와 같이 수정한다.
+
 1. ```controller-configmap.yaml```에 아래라인을 추가한다.
+
 ``` yaml
 {{- if .Values.defaultBackend.enabled }}
 custom-http-errors: {{ .Values.defaultBackend.customHttpErrors }}
 {{- end }} 
 ```
-2. values.yaml에서 defaultBackend을 다음과 같이 수정한다. 
+
+2. values.yaml에서 defaultBackend을 다음과 같이 수정한다.
+
 ``` yaml
 ## Default 404 backend
 ##
@@ -116,9 +123,10 @@ podLabels: {
 ```
 
 ### 2-2. Ingress 별로 default backend 지정하고 싶은 경우
+
 1. [링크](https://medium.com/alterway/how-to-custom-your-default-backend-on-kubernetes-nginx-controller-9b38048e10c0)를 참고해서 default backend 리소스를 Ingress가 존재하는 네임스페이스에 리소스를 생성한다.
-2. Ingress 리소스 annotation에 custom-http-errors와 default-backend 설정을 추가한다.
-예시는 아래와 같다.
+2. Ingress 리소스 annotation에 custom-http-errors와 default-backend 설정을 추가한다. 예시는 아래와 같다.
+
 ``` yaml
 //403 error에 대해서 default-http-backend라는 서비스를 사용함을 의미한다.
 "nginx.ingress.kubernetes.io/custom-http-errors": "403",
@@ -126,6 +134,5 @@ podLabels: {
 ```
 
 ## 참고
-[https://kubernetes.github.io/ingress-nginx/examples/customization/custom-errors/](https://kubernetes.github.io/ingress-nginx/examples/customization/custom-errors/)
-[https://kubernetes.github.io/ingress-nginx/user-guide/custom-errors/](https://kubernetes.github.io/ingress-nginx/user-guide/custom-errors/)
-[https://stackoverflow.com/questions/60233958/how-to-customize-error-pages-served-via-the-default-backend-of-an-nginx-ingress](https://stackoverflow.com/questions/60233958/how-to-customize-error-pages-served-via-the-default-backend-of-an-nginx-ingress)
+
+https://kubernetes.github.io/ingress-nginx/examples/customization/custom-errors/ https://kubernetes.github.io/ingress-nginx/user-guide/custom-errors/ https://stackoverflow.com/questions/60233958/how-to-customize-error-pages-served-via-the-default-backend-of-an-nginx-ingress
