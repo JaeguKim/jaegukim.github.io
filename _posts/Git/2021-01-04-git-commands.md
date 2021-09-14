@@ -43,3 +43,15 @@ git commit -m "Apply .gitignore"
 ``` sh
 git show [commit sha]
 ```
+
+## Branch 삭제
+
+- Local branch 
+   ``` sh 
+   git branch -d [branch_name] 
+   ```
+- Global branch
+   ``` sh
+   git branch -D [branch_name1] [branch_name2] ...
+   git push [remote_name] --delete [remote_branch_name1] [remote_branch_name2] ...
+   ```
