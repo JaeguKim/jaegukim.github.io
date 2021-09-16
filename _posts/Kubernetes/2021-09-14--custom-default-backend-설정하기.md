@@ -32,10 +32,8 @@ nginx-ingress-controller 헬름차트를 아래와 같이 수정한다.
 
 1. ```controller-configmap.yaml```에 아래라인을 추가한다.
 
-``` yaml
-{{- if .Values.defaultBackend.enabled }}
+```
 custom-http-errors: {{ .Values.defaultBackend.customHttpErrors }}
-{{- end }} 
 ```
 
 2. values.yaml에서 defaultBackend을 다음과 같이 수정한다.

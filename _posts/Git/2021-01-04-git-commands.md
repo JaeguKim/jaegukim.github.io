@@ -55,3 +55,8 @@ git show [commit sha]
    git branch -D [branch_name1] [branch_name2] ...
    git push [remote_name] --delete [remote_branch_name1] [remote_branch_name2] ...
    ```
+
+## submodule clone
+
+> git submodule init
+> git submodule update
