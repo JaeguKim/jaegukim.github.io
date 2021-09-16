@@ -32,7 +32,7 @@ nginx-ingress-controller 헬름차트를 아래와 같이 수정한다.
 
 1. ```controller-configmap.yaml```에 아래라인을 추가한다.
 
-```
+``` yaml
 {{- if .Values.defaultBackend.enabled }}
 custom-http-errors: {{ .Values.defaultBackend.customHttpErrors }}
 {{- end }} 
@@ -135,6 +135,6 @@ podLabels: {
 
 ## 참고
 
-[https://kubernetes.github.io/ingress-nginx/examples/customization/custom-errors/](https://kubernetes.github.io/ingress-nginx/examples/customization/custom-errors/
+[https://kubernetes.github.io/ingress-nginx/examples/customization/custom-errors/](https://kubernetes.github.io/ingress-nginx/examples/customization/custom-errors/)
 [https://kubernetes.github.io/ingress-nginx/user-guide/](https://kubernetes.github.io/ingress-nginx/user-guide/)
 [https://stackoverflow.com/questions/60233958/how-to-customize-error-pages-served-via-the-default-backend-of-an-nginx-ingress](https://stackoverflow.com/questions/60233958/how-to-customize-error-pages-served-via-the-default-backend-of-an-nginx-ingress)
