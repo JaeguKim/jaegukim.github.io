@@ -20,3 +20,15 @@ Deployment에 desired state 정보를 기술하고, Deployment Controller는 실
 - PodTemplateSpec의 여러 수정사항을 반영하기 위해서 Deployment를 중지
 - rollout이 막혔는지 확인하기 위해서, Deployment의 status를 사용하기.
 - 더이상 필요없는 오래된 ReplicaSet을 청소
+
+## ETC
+
+1. deployment에는 다음의 configuration이 있다.
+
+``` yaml
+ports:
+- containerPort: 3306
+  name: mysql
+```
+
+위 config는 단지 시스템 정보전달을 위한 목적일뿐, 없어도 포트가 노출이 된다.[출처](https://faun.pub/should-i-configure-the-ports-in-kubernetes-deployment-c6b3817e495)
