@@ -1,0 +1,5 @@
+User-agent: *
+
+Disallow: /norobots/
+
+Sitemap: https://jaegukim.github.io/sitemap.xml
