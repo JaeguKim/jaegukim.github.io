@@ -2,7 +2,7 @@
 layout: post
 title: "throws clause"
 date: 2021-09-12 20:33:00 +0900
-categories: [Language,java]
+categories: [Language,Java]
 ---
 
 ## throws 절의 역할
