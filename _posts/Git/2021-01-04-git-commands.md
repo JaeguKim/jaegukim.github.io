@@ -60,3 +60,13 @@ git show [commit sha]
 
 > git submodule init
 > git submodule update
+
+## Stash
+
+ ```git stash``` : The command takes your uncommitted changes (both staged and unstaged), saves them away for later use, and then reverts them from your working copy. 
+
+```git stash pop``` : removes the changes from your stash and reapplies them to your working copy
+
+```git status apply``` : reapply the changes to your working copy and keep them in your stash
+
+
