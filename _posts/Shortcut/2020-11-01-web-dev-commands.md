@@ -19,3 +19,5 @@ categories: [Shortcut]
 - Exporting Spring Boot application to jar file without testing  
 `./mvnw clean package -DskipTests`
 
+- Delete Cookie In Chrome
+`settings -> cookies and other site data -> see all cookies and site data -> delete some cookies`
