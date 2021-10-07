@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Command"
+title: "Python Command"
 date: 2021-08-16 22:54:00 +0900
 categories: [Language,Python]
 ---
