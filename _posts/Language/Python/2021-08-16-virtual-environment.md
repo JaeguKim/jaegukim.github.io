@@ -12,6 +12,20 @@ categories: [Language,Python]
 
 > venv 나가는 방법 : ```Ctrl + D```
 
+## pyenv
+
+### How to install (in Mac)
+```sh 
+    brew update
+    brew install pyenv
+    echo 'eval "$(pyenv init --path)"' >> ~/.zprofile
+    echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+```
+
+### How to use
+1. ```pyenv install [python version]``` eg. `pyenv install 3.9.7`
+2. `pyenv local [python version]` eg. `pyenv local 3.9.7`
+
 ## Poetry
 
 ### Why poetry
@@ -22,8 +36,13 @@ categories: [Language,Python]
 ### How to use
 1. ```pip3 install poetry``` : install poetry
 2. ```poetry shell``` : activate virtual env
+    - `stop` : stop virtual env
 3. Use following commands
     - ```poetry install``` : generate poetry.lock file and install dependencies
         - `--no-root` : install only dependencies
         - `--no-dev` : skip development dependencies
     - ```poetry update``` : update poetry.lock file
+    - ```poetry run [command]``` : run command in virtual env
+
+- Using different python version
+    - ```poetry env use python3.x``` or ```poetry env use 3.x```
