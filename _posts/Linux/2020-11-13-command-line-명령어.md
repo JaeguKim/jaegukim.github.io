@@ -55,21 +55,21 @@ export PATH="$PATH:/Users/jaegu/anaconda3/bin"
 | hidden file 리스팅 | ``` ls -a ```
 | 현재 절대경로 표시 | ``` pwd ```
 | ssh 접속후 disconnect | ``` exit ``` or ``` Ctrl - d ```
-| 파일에 있는 내용 복사 | ``` cat original.txt >> new.txt ```
+| 파일에 있는 내용 복사 | ``` cat original.txt ]] new.txt ```
 | non-empty 디렉토리 삭제 | ``` rm -rf [folder name] ```
 | process 죽이기 | ``` kill [pid] ```
 | 디렉토리 내에 있는 모든 파일/디렉토리 복사 | ``` cp -r [source dir] ```
 | 파일 이름 변경 | ``` mv old-name new-name ```
 | 파일 옮기기 | ``` mv old-file new-file ```
-| usermod <계정> -l <바꿀 계정> | 계정명을 바꿀 계정명 으로 변경합니다. (사용 비 권장)         |
-| usermod -c <"이름"> <계정>    | 계정의 이름을 변경합니다.                                    |
-| usermod -d <"경로"> <계정>    | 계정의 홈 디렉터리를 변경합니다.                             |
-| usermod -s <"셸"> <계정>      | 계정의 로그인 기본 셸을 변경합니다.                          |
-| usermod -e <날짜> <계정>      | 계정이 해당 날짜에 만료되도록 합니다.ex) usermod -e 2018-05-01 myuser |
-| usermod -g <그룹> <계정>      | 사용자의 기본 소속 그룹을 변경합니다.                        |
-| usermod -G <그룹> <계정>      | 계정의 소속 그룹을 변경합니다. 만약 여러 그룹을 지정할 때에는 ,(콤마) 로 구분하여 지정합니다. |
-| usermod -a -G <그룹> <계정>   | 계정의 소속 그룹을 추가(add) 합니다.                         |
-| list package installed | `apt list`
+| usermod [계정] -l [바꿀 계정] | 계정명을 바꿀 계정명 으로 변경합니다. (사용 비 권장)         |
+| usermod -c [이름] [계정]    | 계정의 이름을 변경합니다.                                    |
+| usermod -d ["경로"] [계정]    | 계정의 홈 디렉터리를 변경합니다.                             |
+| usermod -s ["셸"] [계정]      | 계정의 로그인 기본 셸을 변경합니다.                          |
+| usermod -e [날짜] [계정]      | 계정이 해당 날짜에 만료되도록 합니다.ex) usermod -e 2018-05-01 myuser |
+| usermod -g [그룹] [계정]      | 사용자의 기본 소속 그룹을 변경합니다.                        |
+| usermod -G [그룹] [계정]      | 계정의 소속 그룹을 변경합니다. 만약 여러 그룹을 지정할 때에는 ,(콤마) 로 구분하여 지정합니다. |
+| usermod -a -G [그룹] [계정]   | 계정의 소속 그룹을 추가(add) 합니다.                         |
+| list package installed | `apt list` [참고](https://www.cyberciti.biz/faq/apt-get-list-packages-are-installed-on-ubuntu-linux/)
 
 ## SED : Stream EDitor 
 
