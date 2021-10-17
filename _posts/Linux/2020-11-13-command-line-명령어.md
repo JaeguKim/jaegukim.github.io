@@ -69,7 +69,7 @@ export PATH="$PATH:/Users/jaegu/anaconda3/bin"
 | usermod -g <그룹> <계정>      | 사용자의 기본 소속 그룹을 변경합니다.                        |
 | usermod -G <그룹> <계정>      | 계정의 소속 그룹을 변경합니다. 만약 여러 그룹을 지정할 때에는 ,(콤마) 로 구분하여 지정합니다. |
 | usermod -a -G <그룹> <계정>   | 계정의 소속 그룹을 추가(add) 합니다.                         |
-| list package installed | `apt list` [참고](https://www.cyberciti.biz/faq/apt-get-list-packages-are-installed-on-ubuntu-linux/)
+| list package installed | `apt list`
 
 ## SED : Stream EDitor 
 
