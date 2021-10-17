@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[DataEngineering] Trouble Shooting"
+title: "Trouble Shooting(Hadoop)"
 date: 2020-12-15 16:53:00 +0900
 categories: [DataEngineering,Hadoop]
 ---

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Trouble Shooting"
+title: "Trouble Shooting(AWS)"
 date: 2021-09-02 22:45:00 +0900
 categories: [AWS]
 ---

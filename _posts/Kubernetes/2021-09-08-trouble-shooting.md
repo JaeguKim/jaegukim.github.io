@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Trouble Shooting"
+title: "Trouble Shooting(Kubernetes)"
 date: 2021-09-08 22:45:00 +0900
 categories: [Kubernetes]
 ---

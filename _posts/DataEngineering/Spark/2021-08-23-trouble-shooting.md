@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Trouble Shooting"
+title: "Trouble Shooting(Spark)"
 date: 2021-08-23 22:43:00 +0900
 categories: [DataEngineering,Spark]
 ---
