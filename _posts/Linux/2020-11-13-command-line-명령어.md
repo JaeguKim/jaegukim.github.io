@@ -8,10 +8,6 @@ categories: [Linux]
 ## ```~/``` 란 무엇인가?
 ```~/```란 /home/user_name을 의미한다.
 
-## iTerm2에서 source ~/.bash_profile 자동으로 실행되게 하기
-1. Settings 열기(Cmd + ',' 단축키로도 가능))
-2. General Tab에 Command 속성에 Send text at start 부분에 source ~/.bash_profile 입력
-
 ## export의 의미
 
 ### 예시 1
@@ -47,14 +43,6 @@ export PATH="$PATH:/Users/jaegu/anaconda3/bin"
 /Library/Frameworks/Python.framework/Versions/2.7/bin ........... /Users/jaegu/anaconda3/bin:
 ```
 
-## iterm2에서 스크롤 휠 세팅
-
-[https://stackoverflow.com/questions/36594420/how-can-i-turn-off-scrolling-the-history-in-iterm2](https://stackoverflow.com/questions/36594420/how-can-i-turn-off-scrolling-the-history-in-iterm2)
-
-## bash/zsh global variable setting
-
-[https://apple.stackexchange.com/questions/356441/how-to-add-permanent-environment-variable-in-zsh/356455#356455](https://apple.stackexchange.com/questions/356441/how-to-add-permanent-environment-variable-in-zsh/356455#356455)
-
 ## Bash commands
 
 | 설명 | 커멘드 
@@ -65,9 +53,6 @@ export PATH="$PATH:/Users/jaegu/anaconda3/bin"
 | Bash history 검색 | ``` history ```
 | Bash history 키워드로 검색 | ``` Ctrl + R ``` 후 검색, 다른 matcher 조회는 ```Ctrl +  R ```
 | hidden file 리스팅 | ``` ls -a ```
-| iTerm2 horizonal split | ``` cmd + shift + d ```
-| iTerm2 vertical split | ``` cmd + d ```
-| iTerm vertial pane navigation | ```cmd + [ or ] ```
 | 현재 절대경로 표시 | ``` pwd ```
 | ssh 접속후 disconnect | ``` exit ``` or ``` Ctrl - d ```
 | 파일에 있는 내용 복사 | ``` cat original.txt >> new.txt ```
@@ -84,6 +69,7 @@ export PATH="$PATH:/Users/jaegu/anaconda3/bin"
 | usermod -g <그룹> <계정>      | 사용자의 기본 소속 그룹을 변경합니다.                        |
 | usermod -G <그룹> <계정>      | 계정의 소속 그룹을 변경합니다. 만약 여러 그룹을 지정할 때에는 ,(콤마) 로 구분하여 지정합니다. |
 | usermod -a -G <그룹> <계정>   | 계정의 소속 그룹을 추가(add) 합니다.                         |
+| list package installed | `apt list` [참고](https://www.cyberciti.biz/faq/apt-get-list-packages-are-installed-on-ubuntu-linux/)
 
 ## SED : Stream EDitor 
 
@@ -135,4 +121,3 @@ $ sh script-name-here.sh
 또는
 $ bash script-name-here.sh
 ```
-
