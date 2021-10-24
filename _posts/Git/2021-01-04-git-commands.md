@@ -71,5 +71,7 @@ git show [commit sha]
 
 ```git stash drop``` : delete stash
 
+## Rename branch
 
+`git branch -m [old_name] [new_name]`
 

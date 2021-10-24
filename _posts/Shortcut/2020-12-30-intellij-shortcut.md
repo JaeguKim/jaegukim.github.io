@@ -9,3 +9,5 @@ categories: [Shortcut]
 | -- |
 | reformat code | Option+Cmd+L
 | finding file | Cmd+Shift+O
+| searching everywhere | press Shift twice
+| Replace text in the current file | Ctrl + R
