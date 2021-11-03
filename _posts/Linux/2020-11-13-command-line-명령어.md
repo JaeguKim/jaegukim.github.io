@@ -49,6 +49,7 @@ export PATH="$PATH:/Users/jaegu/anaconda3/bin"
 | --- | ---
 | 존재하지 않는 중간의 디렉토리를 자동으로 생성 | ``` mkdir -p [directory] ```
 | 파일삭제 | ``` rm [file name] ```
+| 현재 경로에 모든 파일 삭제 | ``` rm -rf * ```
 | hidden file 리스팅 | ``` ls -a ```
 | Bash history 검색 | ``` history ```
 | Bash history 키워드로 검색 | ``` Ctrl + R ``` 후 검색, 다른 matcher 조회는 ```Ctrl +  R ```
@@ -70,6 +71,7 @@ export PATH="$PATH:/Users/jaegu/anaconda3/bin"
 | usermod -G [그룹] [계정]      | 계정의 소속 그룹을 변경합니다. 만약 여러 그룹을 지정할 때에는 ,(콤마) 로 구분하여 지정합니다. |
 | usermod -a -G [그룹] [계정]   | 계정의 소속 그룹을 추가(add) 합니다.                         |
 | list package installed | `apt list` [참고](https://www.cyberciti.biz/faq/apt-get-list-packages-are-installed-on-ubuntu-linux/)
+| 압축풀기 | `tar -zxvf [file-name]`
 
 ## SED : Stream EDitor 
 

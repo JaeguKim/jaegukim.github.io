@@ -18,3 +18,15 @@ Release는 쿠버네티스 클러스터에서 실행중인 차트의 instance이
 이러한 개념을 가지고 Helm을 다음과 같이 설명할 수 있다.
 
 > 헬름은 차트를 쿠버네티스에 설치하고, 각각의 installation에 대해서 새로운 release를 생성할 수 있다. 새로운 차트를 찾기 위해서, Helm chart repositories를 검색할 수 있다.
+
+### Helm Dependency란?
+
+[link](https://kb.novaordis.com/index.php/Helm_Dependencies)
+
+- 장점 :chart의 templates 파일들을 다운받을 필요없이 values.yaml만 가지고 argoCD에 배포가능
+
+## Commands
+
+- repo 추가 및 업데이트 : `helm repo add [repo-name] [repo-url]`
+
+- 특정 repo에 있는 helm chart download : `helm pull [repo]/[chart-name] --version [version]`
