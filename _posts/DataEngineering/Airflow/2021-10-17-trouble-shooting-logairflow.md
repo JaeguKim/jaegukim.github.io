@@ -29,3 +29,7 @@ dockerfile에 현재 사용하고 있는 python 버전에 맞는 dev패키지 �
 ```
     sudo apt-get install python3.x-dev  # for python3.x installs
 ```
+
+## airflow backfill command 버그 
+가끔 다음의 backfill command가 동작하지 않을때가 있다. backfill이 완료되었다고는 뜨는데 실제로 데이터가 백필이 되지 않은경우가 발생되었다. 당시 특정 날짜에만 이런 현상이 발생해서 혼란스러웠다.
+`airflow tasks test`(eg. `airflow tasks test hourly_third_party load_apple_ads_api_to_s3 2021-10-09`) 커멘드를 사용해서 특정 테스크를 실행해서 이런 현상을 해결했다.
