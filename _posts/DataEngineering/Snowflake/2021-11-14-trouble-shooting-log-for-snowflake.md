@@ -24,6 +24,6 @@ PATTERN은 external table에 mapping할 파일들의 full path에 대해서 rege
 
 - external_table_3의 경우 : `PATTERN='.*creative_sets.*[.]json`
 
-따라서 기존의 테이블들을 drop하고 위 옵션을 추가하여 테이블을 재 생성하였다. 재생성할때 `REFRESH_ON_CREATE` 값을 true로 설정하여 바로 파일들이 맵핑이 되도록 할 수 있다.
+따라서 기존의 테이블들을 drop하고 위 옵션을 추가하여 테이블을 재생성하였다. 재생성할때 `REFRESH_ON_CREATE` 값을 true로 설정하여 바로 파일들이 맵핑이 되도록 할 수 있었다.
 
 

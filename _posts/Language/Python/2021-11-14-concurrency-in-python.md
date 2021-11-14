@@ -13,5 +13,4 @@ categories: [Language,Python]
 | Cooperative multitasking (`asyncio`)   | The tasks decide when to give up control.                    | 1                    |
 | Multiprocessing (`multiprocessing`)    | The processes all run at the same time on different processors. | Many                 |
 
-
-
+[참고](https://realpython.com/python-concurrency/#what-is-parallelism)
