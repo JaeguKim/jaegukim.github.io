@@ -29,3 +29,10 @@ pip install을 할때 -e를 flag로 주면 설치한 패키지의 소스코드�
 ``` sh
 export PATH=$PATH:/Users/[username]/Library/Python/[python version]/bin
 ```
+
+## install optional sub-packages
+
+다음처럼 optional sub-package 설치 가능하다.
+``` sh
+$ pip install `apache-airflow[aws]`
+```
