@@ -7,7 +7,7 @@ categories: [Language,Python]
 
 ## Memory Management in Python
 
-Python에서 메모리 관리는 다른 python interpreter에 의해서 수행된다. 
+Python에서 메모리 관리는 python interpreter에 의해서 수행된다. 
 
 ### Default Python Implementation
 
@@ -70,11 +70,11 @@ reference count가 0이 되면, 객체에 정의된 특정 deallocation function
 
 Python의 메모리는 object storage(int,dict,...)와 non-object storage로 구분된다.
 
-memory allocator의 디자인은 한번에 작은 양의 데이터를 할당하도록 되어있고(대부분의 python object는 크기가 작으므로), 반드시 필요한 시점에 메모리를 할당한다. 
+memory allocator의 디자인은 한번에 적은 양의 데이터를 할당하도록 되어있고(대부분의 python object는 크기가 작으므로), 반드시 필요한 시점에 메모리를 할당한다. 
 
 #### Python memory allocation strategy
 
-Python은 메모리 공간을 Arena라는 단위로 구성되고, 메모리의 page 바운더리로 정렬되어있다. Python은 page 사이즈를 256KB로 가정한다.
+Python은 메모리 공간을 Arena라는 단위로 구성하고, 메모리의 page 바운더리로 정렬한다. Python은 page 사이즈를 256KB로 가정한다.
 
 ![Book with Page filled with Arena, Pools, and Block](https://files.realpython.com/media/memory_management_5.394b85976f34.png)
 
@@ -111,9 +111,9 @@ Block들은 같은 `size class` 들로 나타내진다. `size class` 는 요청�
 
 `usedpools list` : available space를 갖는 pool들을 트래킹한다. block size 요청이 들어오면, 알고리즘은 `usedpools list` 에서 block size를 갖는 pool들을 체크한다.
 
-`freepools list` : empty state에 있는 모든 pool들을 기록한다. 코드에서 8byte 크기의 메모리를 요청한다고 가정하자, 만약 `usedpools list` 에 아무런 pool이 없다면, empty pool이 8byte 블럭들을 저장할 수 있도록 초기화 된다. 그리고 이 새로운 pool은 `usedpool list` 에 추가되고 미래의 요청에 사용된다.
+`freepools list` : empty state에 있는 모든 pool들을 기록한다. 코드에서 8byte 크기의 메모리를 요청한다고 가정하자, 만약 `usedpools list` 에 아무런 pool이 없다면, empty pool이 8byte 블럭들을 저장할 수 있도록 초기화 된다. 그리고 이 새로운 pool은 `usedpools list` 에 추가되고 미래의 요청에 사용된다.
 
-`full pool` 이 block들을 해제하면, 해당 pool은 `used pools list` 로 다시 추가된다.
+`full pool` 이 block들을 해제하면, 해당 pool은 `usedpools list` 로 다시 추가된다.
 
 ##### 2. Blocks
 
