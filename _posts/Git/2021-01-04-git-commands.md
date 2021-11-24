@@ -75,3 +75,13 @@ git show [commit sha]
 
 `git branch -m [old_name] [new_name]`
 
+## n 번째이전 커밋으로 리셋
+
+``` sh
+$ git reset --soft HEAD~n
+```
+
+## Delete files in git history
+
+- use [bfg-repo-cleaner](https://rtyley.github.io/bfg-repo-cleaner/)
+- [docs](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)
