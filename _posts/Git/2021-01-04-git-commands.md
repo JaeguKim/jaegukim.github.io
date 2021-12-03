@@ -85,3 +85,10 @@ $ git reset --soft HEAD~n
 
 - use [bfg-repo-cleaner](https://rtyley.github.io/bfg-repo-cleaner/)
 - [docs](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)
+
+## merge
+
+``` sh
+git checkout <the branch you want to merge into>
+git merge <the branch you want contents from>
+```
