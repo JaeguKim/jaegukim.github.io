@@ -16,3 +16,7 @@ categories: [FastAPI]
         app.router.redirect_slashes = False
     ```
 - [출처](https://somjang.tistory.com/entry/FastAPI-307-temporary-redirect-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95-Python)
+
+## Asyncio 모듈 테스트 중, `Pytest: runtimeerror there is no current event loop in thread 'mainthread'`
+
+- 해결방법 : method위에 `@pytest.mark.anyio` 사용하는 대신, `@pytest.mark.asyncio` 사용하기
