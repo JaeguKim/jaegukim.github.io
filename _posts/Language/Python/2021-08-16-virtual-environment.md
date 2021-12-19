@@ -36,7 +36,7 @@ categories: [Language,Python]
 ### How to use
 1. ```pip3 install poetry``` : install poetry
 2. ```poetry shell``` : activate virtual env
-    - `stop` : stop virtual env
+    - `deactivate` : stop virtual env
 3. Use following commands
     - ```poetry install``` : generate poetry.lock file and install dependencies
         - `--no-root` : install only dependencies
