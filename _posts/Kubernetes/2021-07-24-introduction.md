@@ -12,7 +12,7 @@ categories: [Kubernetes]
 - Kubectrl : CLI to configure Kubernetes and manage apps
 - Node : Kubernetes cluster에 있는 단일 서버
 - Kubelet : Kubernetes agent running on nodes
-- Control Plance : Set of containers that manage the cluster
+- Control Plane : Set of containers that manage the cluster
   - API server, scheduler, controller manager, etcd 등을 포함
   - 때때로 master라고 불림
 

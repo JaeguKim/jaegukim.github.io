@@ -14,4 +14,8 @@ categories: [DataEngineering,Kafka]
 sudo lsof -t -i tcp:9092 | xargs kill -9
 ```
 
-mac 기준이라 다른환경에서는 잘모르겠다.
+## Unknown error fetching data for topic-partition
+
+kafka-python python package가 카프카 브로커 버전 2.5버전과 호환이 되지 않아서 문제가 발생하였다. 21년 12월기준 kafka-python 패키지는 카프카 2.4버전까지만 지원한다.
+
+- 해결방법 : confluent_kafka 모듈을 사용하도록 변경

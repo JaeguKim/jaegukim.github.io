@@ -32,4 +32,8 @@ json_val = json.dumps(dict1)
 dict2 = json.loads(json_val)
 ```
 
+## Difference between == and is operator
+`==` compares the values of both the operands and checks for value equality. `is` checks if both operands refer to the same object or not.
 
+## TypeError: sequence item 0: expected str instance, int found
+`''.join(list_name)` 을 쓸때, list의 모든 element들은 문자여야한다. 즉 list에 저장된 값이 정수이거나 실수이면 에러가 발생한다.

@@ -36,3 +36,6 @@ mythread.start()
 mythread.join()
 # **************** /THIS IS IMPORTANT
 ```
+
+## asyncio 사용중 "got Future <Future pending> attached to a different loop"
+하나의 event_loop 안에서 다른 event_loop에서 바인딩된 함수를 호출해서 발생하였다. 하나의 event_loop안에서 함수를 호출하도록 변경해주었다.
