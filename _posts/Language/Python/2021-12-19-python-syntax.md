@@ -37,3 +37,13 @@ dict2 = json.loads(json_val)
 
 ## TypeError: sequence item 0: expected str instance, int found
 `''.join(list_name)` 을 쓸때, list의 모든 element들은 문자여야한다. 즉 list에 저장된 값이 정수이거나 실수이면 에러가 발생한다.
+
+## bytes를 String으로 변환하는 방법
+```
+# decode bytes to string
+result = bytes.decode('utf-8') # 방법1
+result = str(bytes, 'utf-8') # 방법2
+```
+
+## private method convention
+use underscore(_) at the beginning of name of method

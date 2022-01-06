@@ -58,8 +58,8 @@ git show [commit sha]
 
 ## submodule clone
 
-> git submodule init
-> git submodule update
+> $ git submodule init
+> $ git submodule update
 
 ## [Stash](https://www.atlassian.com/git/tutorials/saving-changes/git-stash)
 

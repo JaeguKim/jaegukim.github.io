@@ -39,7 +39,7 @@ categories: [Language,Python]
     - `deactivate` : stop virtual env
 3. Use following commands
     - ```poetry install``` : generate poetry.lock file and install dependencies
-        - `--no-root` : install only dependencies
+        - `--no-root` : do not install root packages(your project)
         - `--no-dev` : skip development dependencies
     - ```poetry update``` : update poetry.lock file
     - ```poetry run [command]``` : run command in virtual env

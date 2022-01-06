@@ -24,7 +24,7 @@ kafka-python python package가 카프카 브로커 버전 2.5버전과 호환이
 
 confluent_kafka 내부의 internal queue사이즈가 가득찬 경우 발생한다. 주로 `poll([timeout])` 함수를 호출하지 않아서 발생한다.
 
-> `poll([timeout])` 함수는 메시지를 카프카 브로커에 전달하고 결과정보를 > callback함수를 통해서 전달하는 역할을 한다.
+> `poll([timeout])` 함수는 메시지를 카프카 브로커에 전달하고 결과정보를 callback함수를 통해서 전달하는 역할을 한다.
 > `flush[timeout]` 함수는 프로듀서 큐에 있는 모든 메시지가 브로커에 전달될때까지 대기한다. 파라미터에 timeout값을 전달하지 않으면 `len()`값이 0이 될때까지 `poll()`함수를 호출하며, timeout값을 전달하면 해당 값동안 `poll()`함수를 호출한다. 결과값으로 queue에 남아있는 메시지수를 리턴한다.
 
 ## COMMIT Failed error
@@ -37,3 +37,5 @@ confluent_kafka 내부의 internal queue사이즈가 가득찬 경우 발생한�
 
 - `Error: KafkaError{code=COORDINATOR_LOAD_IN_PROGRESS,val=14,str="Commit failed: Broker: Coordinator load in progress"}`
 
+## Kafka consumergroup for each topic vs Kafka consumergroup for multiple topic
+Kafka consumergroup for each topic의 경우 당연히 consumer들에게 하나의 topic에 대해서 partition rebalancing이 된다. 문득 하나의 consumergroup에 여러 topic을 컨슘하는 컨슈머들이 모여있을 경우 rebalancing이 잘될까? 결론은 잘된다. consumergroup내에서도 각각의 컨슈머에게 (topic, partition) 조합이 유일하게 할당이 되어 rebalancing이 잘 된다. [참고](https://stackoverflow.com/questions/57753211/kafka-use-common-consumer-group-to-access-multiple-topics) 

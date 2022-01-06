@@ -21,6 +21,14 @@ Deployment에 desired state 정보를 기술하고, Deployment Controller는 실
 - rollout이 막혔는지 확인하기 위해서, Deployment의 status를 사용하기.
 - 더이상 필요없는 오래된 ReplicaSet을 청소
 
+### Strategy
+`.spec.strategy` specifies the strategy used to replace old Pods by new ones.
+- Recreate Deployment 
+All existing Pods are killed before new ones are created when `.spec.strategy.type==Recreate.`
+
+- Rolling Update Deployment
+The Deployment updates Pods in a rolling update fashion when `.spec.strategy.type==RollingUpdate`.
+
 ## ETC
 
 1. deployment에는 다음의 configuration이 있다.

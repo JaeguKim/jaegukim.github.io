@@ -30,3 +30,7 @@ Release는 쿠버네티스 클러스터에서 실행중인 차트의 instance이
 - repo 추가 및 업데이트 : `helm repo add [repo-name] [repo-url]`
 
 - 특정 repo에 있는 helm chart download : `helm pull [repo]/[chart-name] --version [version]`
+
+## Templating
+
+- Add single quote : `{{ .Values.annotation | squote }}`
