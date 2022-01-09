@@ -22,3 +22,7 @@ deployment의 spec.selector.matchLabels에 정의 되어있던 ```app.kubernetes
 
 external metric api server가 이미 존재하는데 새로 생성하려고 할때 발생
 [참고](https://githubmate.com/repo/DataDog/helm-charts/issues/118)
+
+## subchart로 차트 배포시 `Error: found in Chart.yaml, but missing in charts/directory:...`
+
+`helm dependency update .` 실행

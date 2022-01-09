@@ -29,7 +29,11 @@ Release는 쿠버네티스 클러스터에서 실행중인 차트의 instance이
 
 - repo 추가 및 업데이트 : `helm repo add [repo-name] [repo-url]`
 
+- Helm repo에 있는 특정 차트 검색 : `helm search repo bitnami | grep [chart name]`
+
 - 특정 repo에 있는 helm chart download : `helm pull [repo]/[chart-name] --version [version]`
+
+- Uninstall release : `helm uninstall [Release-name] [...] [flags]
 
 ## Templating
 
