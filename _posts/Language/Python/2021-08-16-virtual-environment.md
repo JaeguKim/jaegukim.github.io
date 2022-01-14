@@ -43,6 +43,8 @@ categories: [Language,Python]
         - `--no-dev` : skip development dependencies
     - ```poetry update``` : update poetry.lock file
     - ```poetry run [command]``` : run command in virtual env
+    - ```poetry add ``` : adds required packages to your `pyproject.toml`
+        - eg. ```poetry add pendulum@^2.0.5``` or ```poetry add "pendulum>-2.0.5```
 
 - Using different python version
     - ```poetry env use python3.x``` or ```poetry env use 3.x```

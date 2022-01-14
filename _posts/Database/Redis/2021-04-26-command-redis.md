@@ -7,3 +7,6 @@ categories: [Database,Redis]
 
 ## GET ALL KEYS
 > KEYS *
+
+## LOGIN 
+> AUTH [password]
