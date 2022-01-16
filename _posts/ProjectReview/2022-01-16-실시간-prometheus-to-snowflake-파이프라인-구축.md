@@ -103,7 +103,7 @@ def convert_to_value_str(self, msg_dict):
 Snowflake에서 빠르게 적재하기 위해서 결국 S3 Stage에 적재후 Snowflake에 적재하는 방식으로 돌아가기로 했다. 다만 이 경우에는 중복을 보장할수 없었다. 결국 BI에서 Snowflake에 쿼리시 중복을 제거할수 있도록 해야했고, 원본 테이블에서 DISTINCT 옵션으로 중복을 제거할수 있으리라고 기대했다. 하지만 Prometheus로 부터 받아온 데이터는 다음과 같은 특징이 있었다.
 
 - 우리가 쿼리하는 cluster는 여러 shard로 구성되어있고, 각각의 Shard에는 Prometheus가 HA를 위해서 2대로 실행되고 있었다. 이때 각각이 scrape하는 시점이 달라서 같은 시각에 대한 데이터라도 다른 결과가 적재되어 있었다. 즉, 아래와 같이 특정 cluster shard에 쿼리를 했을때 다음과 같이 2개의 값중 랜덤하게 리턴하게 된다.
-  - <그림>
+  - 그림
 
 그러므로 우리가 중복로그를 필터링 하려면 쿼리에서 value값을 제외한 모든 필드들에 대해서 같은지 확인해야 한다. 그리고 그중에는 timestamp,cluster,shard정보가 항상 존재해야만 어느 cluster shard로 부터 무슨 시간에 대한 데이터인지 구별할 수 있다.
 
