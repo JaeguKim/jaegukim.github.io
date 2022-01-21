@@ -3,7 +3,6 @@ layout: post
 title: "Helm Chart"
 date: 2021-07-23 11:08:00 +0900
 categories: [Kubernetes]
-
 ---
 
 ## Helm Chart
@@ -39,7 +38,7 @@ Release는 쿠버네티스 클러스터에서 실행중인 차트의 instance이
 - Uninstall release : `helm uninstall [Release-name] [...] [flags]
 
 - helm upgrade,install시 value orverride 예시 : `helm upgrade metric . --create-namespace -n metric --set password=***** --debug --install`
-  - `--set` has a higher precedence than the default `values.yaml`
+    - `--set` has a higher precedence than the default `values.yaml`
 
 
 
@@ -52,35 +51,31 @@ Release는 쿠버네티스 클러스터에서 실행중인 차트의 instance이
 - [Built-in Objects](https://helm.sh/docs/chart_template_guide/builtin_objects/)
 
 - Template Functions and Pipelines
-
-  - `quote` : `{{ quote .Values.favorite.drink }}`, we can also use `squote`
-
-  - [Go template language](https://godoc.org/text/template)
-
-  - [Template Function List](https://helm.sh/docs/chart_template_guide/function_list/)
-
-  - `print` : `print "Matt has " .Dogs " dogs"` , you can also use `println`
-
-  - `printf` : `printf "%s has %d dogs." .Name .NumberDogs`
-
-  - `time` : `trim` function removes white space from both sides of a string
-
-    - `trim " hello "`: `hello`
-
-  - `trimAll` 
-
-    - `trimAll "$" "$5.00"` : `5.00` 
-
-  - `trimPrefix`,`trimSuffix`
-
+    - `quote` : `{{ quote .Values.favorite.drink }}`, we can also use `squote`
     
-
+    - [Go template language](https://godoc.org/text/template)
+    
+    - [Template Function List](https://helm.sh/docs/chart_template_guide/function_list/)
+    
+    - `print` : `print "Matt has " .Dogs " dogs"` , you can also use `println`
+    
+    - `printf` : `printf "%s has %d dogs." .Name .NumberDogs`
+    
+    - `time` : `trim` function removes white space from both sides of a string
+    
+      - `trim " hello "`: `hello`
+    
+    - `trimAll` 
+    
+      - `trimAll "$" "$5.00"` : `5.00` 
+    
+    - `trimPrefix`,`trimSuffix`
+    
+      
 ## Pipelines
 
 - pipelines are a tool for chaining together a series of template commands to compactly express a series of transformations.
-
 - eg 
-
   - `{{ .Values.favorite.drink | repeat 5 | quote }}`: `"coffeecoffeecoffeecoffeecoffee"`
   - `{{ .Values.favorite.food | upper | quote }}`: `"PIZZA"`
 
@@ -240,3 +235,4 @@ data:
 ```
 
 so it is considered to use `include` over `template` in Helm templates simply so that the output formatting can be handled better for YAML documents.
+
