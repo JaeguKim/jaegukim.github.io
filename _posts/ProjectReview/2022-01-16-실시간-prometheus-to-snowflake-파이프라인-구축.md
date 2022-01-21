@@ -7,7 +7,15 @@ categories: [ProjectReview]
 
 ## 프로젝트 배경
 
-기존에 동작하던 앱에서는 1분에 한번씩 Prometheus에 실시간으로 수집되고 있는 메트릭을 쿼리하고 S3에 업로드후 Snowflake 데이터 웨어하우스에 적재를 하는 방식으로 동작하였다. 이 방식은 다음과 같은 문제점이 있었다.
+기존에 동작하던 앱에서는 1분에 한번씩 Prometheus에 실시간으로 수집되고 있는 메트릭을 쿼리하고 S3에 업로드후 Snowflake 데이터 웨어하우스에 적재를 하는 방식으로 동작하였다. 
+
+### 기존 아키텍처
+![image](https://user-images.githubusercontent.com/22807942/150488172-ad11cc31-2d3d-45d6-8b5a-bcba34fd78c2.png)
+
+### 기존 백필 아키텍처
+![image](https://user-images.githubusercontent.com/22807942/150488344-694a9728-053d-4f9e-9262-a1d9531b37c3.png)
+
+이 방식은 다음과 같은 문제점이 있었다.
 
 - 데이터 backfill의 어려움 : 프로메테우스의 retention은 6시간으로 설정되어있고, retention이 지나면 프로메테우스로부터 데이터를 받아올 수 없다. retention이 지난경우 백필을 원하면 DevOps팀에게 별도의 Prometheus의 cold storage인 Thanos를 요청해야 했다. Prod환경에서 사용중이던 Thanos는 이미 부하가 많이 걸려있는 상황이기 때문에 사용할 수 없다.
 - backfill Thanos 부하증가 : 몇가지 메트릭의 경우 Thanos에서 대량의 데이터를 로드하여 메모리에 불러오다보니, 자주 장애가 나는 현상이 있었다. Thanos는 리소스를 많이 필요하므로, DevOps팀에서 backfill Thanos 배포를 달가워하지는 않았다.
@@ -33,6 +41,7 @@ categories: [ProjectReview]
 
 S3 적재, Snowflake 적재 도중 데이터 유실을 방지 하기위해서 Kafka consumer의 offset commit 기능을 떠올렸다. Kafka를 사용하게 되면서 중복로그가 쌓일수 있기 때문에 중복을 어떻게 제거할까도 고민했다. Snowflake는 Unique 키를 지원하지 않기 때문에, 중복 row가 생길수 있었고 이를 위해서 data를 적재하기 전에 해당 row를 delete후 insert하는 방식을 선택했다(merge into 쿼리를 사용하는것도 고려했지만 테이블 풀 스캔이 발생할것 같아서 효율적이지 않을것이라 생각했다). 그래서 나온것이 V1 아키텍쳐이다.
 
+![image](https://user-images.githubusercontent.com/22807942/150488503-f95198d1-aaf9-474c-9aba-b31b97596573.png)
 
 
 Kafka consumer app에서 snowflake에 delete,insert 쿼리를 하나의 트랜잭션으로 처리하기 위해서 다음 처럼 구현했다.
@@ -121,7 +130,14 @@ Snowflake에서 빠르게 적재하기 위해서 결국 S3 Stage에 적재후 Sn
 
 그 다음으로 고려해야 할것은 Consumer의 병렬성이었다. 유저의수가 몰리는 시간대의 경우 메시지의 수가 증가하게 되고, consumer lag에 맞게 consumer의 수를 유기적으로 조정하는것이 필요했다. 그렇게 해서 나온 구조가 v2 아키텍쳐이다.
 
-현재 컨슈머앱들은 하나의 Kubernetes Pod로 실행되고 있었고, HPA를 적용하기 위해서 [Horizontal Pod Autoscaling (HPA) triggered by Kafka event](https://medium.com/@ranrubin/horizontal-pod-autoscaling-hpa-triggered-by-kafka-event-f30fe99f3948) 글을 참고했다. 이 글이 제시한 방법은 아래와 같이 consumer pod에 kafka exporter를 띄워서 msk broker에 있는 메트릭들을 수집하고 prometheus adapter에서 custom metric api server를 생성하여 HPA에게 kafka consumer lag정보를 제공해주는 방법이다. 위 글이 제시한 방법데로 `Prometheus Adapter` Chart의 value를 구성하면 메트릭을 정상적으로 받아오지 못해서, 아래와 같이 values.yaml을 구성했다.
+![image](https://user-images.githubusercontent.com/22807942/150488602-84a32732-b13c-4aed-a499-2441483aa8f0.png)
+
+
+현재 컨슈머앱들은 하나의 Kubernetes Pod로 실행되고 있었고, HPA를 적용하기 위해서 [Horizontal Pod Autoscaling (HPA) triggered by Kafka event](https://medium.com/@ranrubin/horizontal-pod-autoscaling-hpa-triggered-by-kafka-event-f30fe99f3948) 글을 참고했다. 이 글이 제시한 방법은 아래와 같이 consumer pod에 kafka exporter를 띄워서 msk broker에 있는 메트릭들을 수집하고 prometheus adapter에서 custom metric api server를 생성하여 HPA에게 kafka consumer lag정보를 제공해주는 방법이다. 
+
+![image](https://user-images.githubusercontent.com/22807942/150488860-7cefaf35-8345-460e-a4c8-a6c81063a673.png)
+
+위 글이 제시한 방법데로 `Prometheus Adapter` Chart의 value를 구성하면 메트릭을 정상적으로 받아오지 못해서, 아래와 같이 values.yaml을 구성했다.
 
 ``` yaml
 prometheus-adapter:
@@ -207,6 +223,9 @@ if __name__ == '__main__':
 ```
 
 하지만 job이 정상적으로 실행후 job정보가 redis에서 삭제가 되어야하는데, job이 실행하는 시작시점에 job정보가 사라지는 문제점이 있었다. 물론 job의 결과에 따라서 job을 다시 스케줄링하는 방법이 있었지만 실행도중 fail이 되는경우 해당 job을 다시 스케줄링할수 있는 방법은 없었다. 따라서 Producer Pod가 실행도중 종료되더라도, 실패한 job부터 실행할 수 있도록 Redis와 JobGenerator라는 앱을 추가한 버전이 v3 아키텍쳐이다.
+
+![image](https://user-images.githubusercontent.com/22807942/150489033-93f45241-8501-4375-b3bc-ba51c2196028.png)
+
 
 위 구조에서는 JobGenerator앱은 deployment 리소스를 사용해서 replica수를 3으로 설정하여 배포하였다. 따라서 3개의 Pod중 어느 2개의 Pod가 fail이 되더라도 job 정보를 계속 갱신할 수 있도록 하였다.
 
