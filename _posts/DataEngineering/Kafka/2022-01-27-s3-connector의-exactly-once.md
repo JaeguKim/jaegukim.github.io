@@ -26,15 +26,15 @@ Kafka만이 유일한 source of truth이다. 이 사실은 장애복구과정을
 
 1. S3 connector가 90 record마다 새로운 파일을 생성하는 파티셔너를 사용한다고 하자. 각각의 레코드는 1MB이고 connector는 25MB 각각의 여러 parts를 업로드하도록 설정되어있다. 이때 커넥터가 180번 offset부터 레코드들을 컨슘하다고 가정하자. 커넥터는 25MB 크기의 part 세개를 성공적으로 업로드 한뒤, 남은 15MB에 대해서 업로드를 진행하고 커넥터는 multipart upload를 완료한다. S3는 parts를 하나의 파일로 합친다. 이 작업은 S3에서 매우 빠르게 처리된다. 마지막으로 S3 커넥터는 multi part 업로드가 완료된 시점에, 성공적으로 업로드된 마지막 카프카 레코드의 offset를 커밋한다. 따라서 다음 starting kafka record offset은 270번이 된다.
 
-   ![Success: Apache Kafka | S3 Connector | AWS S3](https://cdn.confluent.io/wp-content/uploads/S3_Connector_AWS.png)
+![Success: Apache Kafka | S3 Connector | AWS S3](https://cdn.confluent.io/wp-content/uploads/S3_Connector_AWS.png)
 
 2. 비슷한 시나리오로, S3 커넥터가 추가로 90개의 레코드를 S3로 업로드하기 시작한다고 하자. 그러나 이 경우에 part four를 업로드하는 과정에 Connect cluster에 심한 장애가 생겨서 S3 커넥터가 offline되었다고 해보자. 이러한 실패가 S3 커넥터가 90개의 레코드들을 하나의 파일로 업로드하는것을 방해했을지라도, S3 유저 입장에서는 partial data형태의 실패현상을 보지 못한다, 왜냐하면 파일이 아직 보이지 않기 때문이다. 일단 S3 커넥터가 다시 복구가 되고 나면, latest committed Kafka record offset부터 처리하기 시작할 것이고(이 경우에 여전히 270번 오프셋부터 처리하기 시작) 이번에는 four parts 모두 업로드가 성공적으로 끝난다면, S3에 90레코드에 대한 파일이 제대로 위치될것이다. 다음에 컨슘할 카프카 오프셋은 이제 360이 된다.
 
-   ![Failure: Apache Kafka | S3 Connector | AWS S3](https://cdn.confluent.io/wp-content/uploads/S3_Connector_AWS_Failure.png)
+![Failure: Apache Kafka | S3 Connector | AWS S3](https://cdn.confluent.io/wp-content/uploads/S3_Connector_AWS_Failure.png)
 
-   3. 이번에는 다른 실패상황을 생각해보자. 먼저 추가로 90개의 레코드들을 S3로 업로드한다고 가정하자. multipart upload는 S3측에서 성공했지만, Kafka로 offset commit message가 유실이 되었다고 가정하자. 이 경우에는 S3 커넥터는 latest saved Kafka offset부터 다시 처리하기 시작한다(즉 360번 offset). 그리고 S3에 업로드가 완료되었다고 하자, 이 상황에서도 S3 커넥터는 중복을 피할수 있는데, 그 이유는 이전 파일이 동일 이름을 가진 파일로 overwrite되기 때문이다. 이 경우에도 offset commit이 성공한다면, S3 커넥터는 450번 offset부터 컨슘하게 된다.
+3. 이번에는 다른 실패상황을 생각해보자. 먼저 추가로 90개의 레코드들을 S3로 업로드한다고 가정하자. multipart upload는 S3측에서 성공했지만, Kafka로 offset commit message가 유실이 되었다고 가정하자. 이 경우에는 S3 커넥터는 latest saved Kafka offset부터 다시 처리하기 시작한다(즉 360번 offset). 그리고 S3에 업로드가 완료되었다고 하자, 이 상황에서도 S3 커넥터는 중복을 피할수 있는데, 그 이유는 이전 파일이 동일 이름을 가진 파일로 overwrite되기 때문이다. 이 경우에도 offset commit이 성공한다면, S3 커넥터는 450번 offset부터 컨슘하게 된다.
 
-      ![Failure: Apache Kafka | S3 Connector | AWS S3](https://cdn.confluent.io/wp-content/uploads/S3_Connector_AWS__Failure_Offset_Commit.png
+![Failure: Apache Kafka | S3 Connector | AWS S3](https://cdn.confluent.io/wp-content/uploads/S3_Connector_AWS__Failure_Offset_Commit.png)
 
 
 ## [출처](https://www.confluent.io/blog/apache-kafka-to-amazon-s3-exactly-once/)
