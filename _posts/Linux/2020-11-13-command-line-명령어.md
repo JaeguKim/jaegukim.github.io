@@ -123,3 +123,21 @@ $ sh script-name-here.sh
 또는
 $ bash script-name-here.sh
 ```
+
+## Makefile
+
+### Passing env var to `make` command
+
+Makefile
+
+``` sh
+send:
+    echo $(MESSAGE1) $(MESSAGE2)
+```
+
+Run example
+``` sh
+$ MESSAGE1=YES MESSAGE2=NG  make send MESSAGE2=OK
+echo YES OK
+YES OK
+```
