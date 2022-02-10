@@ -20,6 +20,10 @@ mac에서 아름다운 터미널을 설정하기 위한 링크를 소개한다.
 
 [https://apple.stackexchange.com/questions/356441/how-to-add-permanent-environment-variable-in-zsh/356455#356455](https://apple.stackexchange.com/questions/356441/how-to-add-permanent-environment-variable-in-zsh/356455#356455)
 
+## 한글 자소 분리 현상 해결
+- Preferences > Profiles > Text > Unicode > Unicode normalization form
+    - Unicode normalization form의 값으로 NFC를 선택
+
 ## Shortcut
 | 설명 | 커멘드 
 | --- | ---
