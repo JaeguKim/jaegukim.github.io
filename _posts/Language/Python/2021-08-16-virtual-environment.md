@@ -10,9 +10,11 @@ categories: [Language,Python]
 1. ```python3 -m venv [env name]```
 2. ```source [env name]/bin/activate```
 
-> venv 나가는 방법 : ```Ctrl + D```
+> How to escape : ```Ctrl + D```
 
 ## pyenv
+
+> you can use multiple python by using `pyenv`
 
 ### How to install (in Mac)
 ```sh 
@@ -23,8 +25,8 @@ categories: [Language,Python]
 ```
 
 ### How to use
-1. ```pyenv install [python version]``` eg. `pyenv install 3.9.7`
-2. `pyenv local [python version]` eg. `pyenv local 3.9.7`
+1. Install additional python : ```pyenv install [python version]``` eg. `pyenv install 3.9.7`
+2. Setup python in current directory : `pyenv local [python version]` eg. `pyenv local 3.9.7` 
 
 ## Poetry
 
