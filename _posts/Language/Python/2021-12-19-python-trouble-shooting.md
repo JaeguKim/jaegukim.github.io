@@ -5,6 +5,15 @@ date: 2021-12-19 14:37:00 +0900
 categories: [Language,Python]
 ---
 
+## OSError: mysql_config not found when installing ```mysqlclinet```
+- solution : install mysql on your mac by ```brew install mysql```
+
+## `pip install cryptography` 설치시 에러 발생
+운영체제별로 다음 [실행과정](https://cryptography.io/en/3.4.8/installation.html) 수행
+
+## [error 32] broken pipe 에러
+kafka producer app에서 prometheus로 쿼리를 할때 prometheus에서 설정해둔 request timeout값을 넘긴 경우, prometheus에서 connection을 close하게 되고 결과적으로 클라이언트에서 broken pipe에러를 보게되는것으로 추정된다.
+
 ## Can't open file when open file with write mode
 
 open의 path 파라미터에 디렉토리가 포함되어 있는경우, 해당 디렉토리가 반드시 존재해야 오류가 나지 않는다. `open(path,'w')` 를 실행했을때 해당 path에 파일이 존재하지 않으면 해당 파일이 생성이 된다. 하지만 디렉토리가 새로 생기진 않는다.
