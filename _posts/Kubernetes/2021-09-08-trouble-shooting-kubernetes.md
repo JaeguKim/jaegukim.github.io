@@ -26,3 +26,7 @@ external metric api server가 이미 존재하는데 새로 생성하려고 할�
 ## subchart로 차트 배포시 `Error: found in Chart.yaml, but missing in charts/directory:...`
 
 `helm dependency update .` 실행
+
+## Pod가 아닌 리소스 삭제시 계속 생성되는 경우
+
+argo cd에서 다른 저장소에 있는 차트를 배포하고 있어서 발생
