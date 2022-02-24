@@ -27,6 +27,7 @@ categories: [Language,Python]
 ### How to use
 1. Install additional python : ```pyenv install [python version]``` eg. `pyenv install 3.9.7`
 2. Setup python in current directory : `pyenv local [python version]` eg. `pyenv local 3.9.7` 
+3. Unset python in current directory : `pyenv local --unset`
 
 ## Poetry
 

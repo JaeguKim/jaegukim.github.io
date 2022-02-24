@@ -1,17 +1,17 @@
 ---
 layout: post
-title: "CMD와 ENTRYPOINT"
+title: "RUN CMD vs ENTRYPOINT"
 date: 2021-08-07 23:12:00 +0900
 categories: [Docker]
 ---
 
-## ENTRYPOINT와 CMD의 차이
+## 요약
 
-> 컨테이너 시작시 실행 명령에 대한 Default 지정 여부
+- `RUN` executes command in a new layer and creates a new image.
+- `ENTRYPOINT` : ENTRYPOINT를 사용해서 컨테이너 수행 명령을 정의하면, 지정한 명령대로 무조건 실행이 된다.
+- `CMD` : 컨테이너 실행시 지정한 인자값을 실행하도록 할수 있음.
 
-만약 ENTRYPOINT를 사용해서 컨테이너 수행 명령을 정의하면, 지정한 명령대로 무조건 실행이 된다.
-
-반면 CMD를 사용하면, 컨테이너 실행시 지정한 인자값을 실행하도록 할수 있다.
+## 실험
 
 ``` dockerfile
 FROM ubuntu
@@ -26,7 +26,7 @@ CMD ["bin/df", "-h"]
 
 ``` dockerfile
 FROM ubuntu
-CMD ["bin/df", "-h"]
+ENTRYPOINT ["bin/df", "-h"]
 ```
 
 반면 위처럼 실행하면 항상 지정된 커멘드만 실행이 된다.

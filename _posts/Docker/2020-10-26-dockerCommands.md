@@ -28,3 +28,6 @@ categories: [Docker]
 
 - delete container
 > docker container rm (-f) [CONTAINER ID]
+
+- run container
+> docker run --name [container name] [tag]
