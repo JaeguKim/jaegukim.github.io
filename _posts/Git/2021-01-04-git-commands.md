@@ -30,6 +30,13 @@ $ git config --local --list
 git commit --amend --author="[NAME] <EMAIL>"
 ```
 
+## 이미 push된 커밋 author 변경하기
+
+``` sh
+git commit --amend --author="Author Name <email@address.com>"
+git push -f
+```
+
 ## Git ignore 적용하기
 
 ``` sh
@@ -55,6 +62,14 @@ git show [commit sha]
    git branch -D [branch_name1] [branch_name2] ...
    git push [remote_name] --delete [remote_branch_name1] [remote_branch_name2] ...
    ```
+
+## Branch 목록 보기
+
+``` sh
+> git branch // local branch 보기
+> git branch -r // remote branch 보기
+> git branch -a // local,remote 상관없이 보기
+```
 
 ## submodule
 

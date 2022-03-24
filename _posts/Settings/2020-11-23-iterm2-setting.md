@@ -5,8 +5,9 @@ date: 2020-11-23 21:51:00 +0900
 categories: [Settings]
 ---
 
-mac에서 아름다운 터미널을 설정하기 위한 링크를 소개한다.  
-[link](https://medium.com/@Clovis_app/configuration-of-a-beautiful-efficient-terminal-and-prompt-on-osx-in-7-minutes-827c29391961)
+- mac terminal setting guide
+    - [link](https://medium.com/@Clovis_app/configuration-of-a-beautiful-efficient-terminal-and-prompt-on-osx-in-7-minutes-827c29391961)
+    - [최종 zshrc 파일](https://github.com/Clovis-team/clovis-open-code-extracts/blob/master/utils/clovis-zshrc)
 
 ## iTerm2에서 source ~/.bash_profile 자동으로 실행되게 하기
 1. Settings 열기(Cmd + ',' 단축키로도 가능))

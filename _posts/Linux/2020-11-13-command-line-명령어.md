@@ -72,6 +72,7 @@ export PATH="$PATH:/Users/jaegu/anaconda3/bin"
 | usermod -a -G [그룹] [계정]   | 계정의 소속 그룹을 추가(add) 합니다.                         |
 | list package installed | `apt list` [참고](https://www.cyberciti.biz/faq/apt-get-list-packages-are-installed-on-ubuntu-linux/)
 | 압축풀기 | `tar -zxvf [file-name]`
+| 커멘드 실행하여 결과 리턴 | `eval [command]` 주로 커멘드 결과를 다른 커멘드 입력으로 체이닝할때 사용
 
 ## SED : Stream EDitor 
 

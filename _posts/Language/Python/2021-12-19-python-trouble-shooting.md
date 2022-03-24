@@ -68,3 +68,7 @@ RUN pip3 install --no-cache-dir convertdate==2.3.0 lunarcalendar==0.0.9 holidays
 ```
 
 여기서 처음에는 covertdate, lunarcalendar 등 미리 설치되어야 하는 패키지들을 requirements.txt 파일에서 순서의 앞단에 배치하도록 하였으나, 패키지들의 설치순서는 정의 순서와 관계가 없다는 점을 깨달았다. 결국 위 처럼 명시적으로 설정하여 설치했다.
+
+## pip install시 urllib3 모듈에서 ReadTimeoutError 발생할때
+
+인터넷이 느린경우 ReadTimeout이 발생하기도 한다.
