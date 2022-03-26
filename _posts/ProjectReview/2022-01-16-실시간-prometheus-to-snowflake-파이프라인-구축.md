@@ -3,6 +3,7 @@ layout: post
 title: "실시간 Prometheus To Snowflake 파이프라인 구축"
 date: 2022-01-16 12:58:00 +0900
 categories: [ProjectReview]
+
 ---
 
 ## 프로젝트 배경
@@ -10,9 +11,11 @@ categories: [ProjectReview]
 기존에 동작하던 앱에서는 1분에 한번씩 Prometheus에 실시간으로 수집되고 있는 메트릭을 쿼리하고 S3에 업로드후 Snowflake 데이터 웨어하우스에 적재를 하는 방식으로 동작하였다. 
 
 ### 기존 아키텍처
+
 ![image](https://user-images.githubusercontent.com/22807942/150488172-ad11cc31-2d3d-45d6-8b5a-bcba34fd78c2.png)
 
 ### 기존 백필 아키텍처
+
 ![image](https://user-images.githubusercontent.com/22807942/150488344-694a9728-053d-4f9e-9262-a1d9531b37c3.png)
 
 이 방식은 다음과 같은 문제점이 있었다.
@@ -37,7 +40,9 @@ categories: [ProjectReview]
 
 
 
-## 개편과정
+## 구조 개편과정
+
+### 1. 데이터 유실방지 방법에 대한 고민
 
 S3 적재, Snowflake 적재 도중 데이터 유실을 방지 하기위해서 Kafka consumer의 offset commit 기능을 떠올렸다. Kafka를 사용하게 되면서 중복로그가 쌓일수 있기 때문에 중복을 어떻게 제거할까도 고민했다. Snowflake는 Unique 키를 지원하지 않기 때문에, 중복 row가 생길수 있었고 이를 위해서 data를 적재하기 전에 해당 row를 delete후 insert하는 방식을 선택했다(merge into 쿼리를 사용하는것도 고려했지만 테이블 풀 스캔이 발생할것 같아서 효율적이지 않을것이라 생각했다). 그래서 나온것이 V1 아키텍쳐이다.
 
@@ -128,6 +133,8 @@ Snowflake에서 빠르게 적재하기 위해서 결국 S3 Stage에 적재후 Sn
 
 
 
+### 2. Consumer lag에 따라 유동적으로 consumer수 조정하기
+
 그 다음으로 고려해야 할것은 Consumer의 병렬성이었다. 유저의수가 몰리는 시간대의 경우 메시지의 수가 증가하게 되고, consumer lag에 맞게 consumer의 수를 유기적으로 조정하는것이 필요했다. 그렇게 해서 나온 구조가 v2 아키텍쳐이다.
 
 ![image](https://user-images.githubusercontent.com/22807942/150488602-84a32732-b13c-4aed-a499-2441483aa8f0.png)
@@ -159,6 +166,10 @@ prometheus-adapter:
 
 위 방법은 pod autoscaling시 kafka exporter 컨테이너 또한 복제가 되므로, 비효율적이다. kafka exporter 컨테이너는 한개이상이 필요없다.
 Kafka exporter 컨테이너를 consumer pod에서 분리하기 위해서, 외부에 kafka exporter를 단독으로 포함하는 deployment를 생성하고 prometheus adapter에서는 external metric api 서버를 생성하여 해결하려고 했다. 하지만 현재 k8s cluster에는 이미 external metric api server가 존재하였고 추가적으로 생성하는것이 불가능했다. 이미 존재하는 external metric api server은 keda metric adapter에 의해서 생성되고 있었고, 결과적으로 keda를 사용하여 topic별 consumer lag값으로 autoscaling 할수 있었다.
+
+
+
+### 3. 메트릭 프로듀서앱의 장애상황에 대한 대처
 
 하지만 현재구조에서는 매분마다 데이터 수집로직이 도는데, Producer Pod이 실행도중 종료가 되면, 데이터가 유실이 발생할 수 있다. Producer Pod이 중도에 fail되더라도, Producer가 수행하고 있던 job정보를 저장해둘 독립적인 저장소가 필요했다. 여기서 처음으로 생각했던 해결책은 Producer app에서 1분마다 job을 스케줄링 하기위해서 사용했던 `APScheduler` 모듈의 backend를 redis로 사용하여 job정보를 외부 저장소에 저장하는 방법을 생각했다. 하지만 테스트를 다음 처럼 해보니 아주 큰 문제점이 있었다.
 
@@ -226,8 +237,27 @@ if __name__ == '__main__':
 
 ![image](https://user-images.githubusercontent.com/22807942/150489033-93f45241-8501-4375-b3bc-ba51c2196028.png)
 
-
 위 구조에서는 JobGenerator앱은 deployment 리소스를 사용해서 replica수를 3으로 설정하여 배포하였다. 따라서 3개의 Pod중 어느 2개의 Pod가 fail이 되더라도 job 정보를 계속 갱신할 수 있도록 하였다.
+
+
+
+### 4. 적재대상이 되는 테이블의 칼럼 리스트 로드 자동화
+
+원래 구조에서는 적재 대상이 되는 테이블의 칼럼 리스트를 python 리스트에 하드코딩 하는 형태로 구현되어있었다. 따라서 추가적으로 2022년 2월 기준으로 새로운 메트릭 수집 요청시 코드를 수정하고 도커 빌드를 새로해서 이미지 태그를 업데이트를 해야해서 번거롭다는 문제점이 있었다. 따라서 컨슈머 앱의 초기화 과정에서 적재해야할 테이블을 대상으로 칼럼 리스트를 로드할 수 있도록 자동화를 진행했다.
+
+``` python
+def get_table_list(database: str, schema: str):
+    query = f'SHOW TABLES IN {database}.{schema};'
+    table_list = []
+    with get_snowflake_conn() as conn:
+        cur = conn.cursor()
+        cur.execute(query)
+        for row in cur:
+            table_list.append(row[1].lower())
+    return table_list
+```
+
+이로서 새로운 메트릭 요청이 들어오면 헬름차트에 대상 쿼리가 되는 promQL과 대상 테이블 정보만 추가하고, Snowflake에 대상 테이블만 생성해주면 되어서 유지보수성이 향상되었다.
 
 ## 개편구조의 장점
 
@@ -252,7 +282,6 @@ WHERE RN=1;
 ```
 
 다만 저렇게 했을때, 테이블 풀스캔을 한다는 문제점이 있어서 쿼리시간이 지나치게 오래걸리는 문제점이 있었다. 이를 해결하기 위해서 FROM절에 필요한 하루치 데이터만 가져와서 중복로그를 제거하는 방식으로 수정되었다.
-
 
 
 ## 참고
