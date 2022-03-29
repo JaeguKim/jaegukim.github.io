@@ -119,3 +119,9 @@ git cherry-pick 586030a0c492491b89768436a5ef2d821c6176e6
 visual studio code의 plugin인 GitLens를 사용하면 아래와같이 손쉽게 cherry picking할수 있다.
 
 ![img](https://res.cloudinary.com/practicaldev/image/fetch/s--8qthykM6--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/http://res.cloudinary.com/hackafro/image/upload/v1518728407/Screenshot_9_ip7xnw.png)
+
+## [pop specific file in stash](https://stackoverflow.com/questions/1105253/how-would-i-extract-a-single-file-or-changes-to-a-file-from-a-git-stash)
+
+``` sh
+git checkout stash@{0} -- <filename>
+```

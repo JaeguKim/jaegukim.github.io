@@ -51,3 +51,8 @@ categories: [Language,Python]
 
 - Using different python version
     - ```poetry env use python3.x``` or ```poetry env use 3.x```
+
+- Remove virtual env
+    - cd into the folder where pyproject.toml is
+    - Run poetry env list (this will show you the venv for that project)
+    - Then run poetry env remove whatever-WhATeVs-py3.9 to delete it

@@ -64,3 +64,7 @@ categories: [Kubernetes]
 - update helm dependency
 
 > helm dependency update .
+
+- switch context
+
+> kubectl config use-context [context name(eg. minikube)]
