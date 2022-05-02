@@ -15,7 +15,7 @@ categories: [DataEngineering,Kafka]
 
 위와 같은 구조에서 컨트롤러는 싱글 스레드 루프에서 모든 브로커들에게 갱신된 메타데이터 정보를 전달하는 로직을 수행한다. 그러다가 클라이언트들이 직접적으로 Zookeeper 서버와 상호작용하는 구조에서, 컨트롤러를 통해서 상호작용하도록 구조가 변경되었다. 이러한 구조 변경의 목적은 Zookeeper 서버의 읽기/쓰기 부하를 줄이기 위함이었다.
 
-하지만 브로커수와 토픽 파티션이 증가할수록 Zookeeper가 갱신에 저장해야 하는 메타데이터들이 증가하므로 확장가능하지 않다는 문제점이 여전히 존재한다. 크게 3가지 scalability 문제점이 있을수 있다.
+하지만 브로커수와 토픽 파티션이 증가할수록 Zookeeper가 갱신에 저장해야 하는 메타데이터들이 증가하므로 확장가능하지 않다는 문제점이 여전히 존재한다. 크게 2가지 scalability 문제점이 있을수 있다.
 
 
 
@@ -58,7 +58,7 @@ Zookeeper에서 모든 쓰기 데이터들이 트랜젝션 로그로 관리되�
 
 ### Primary-backup
 
-위 방식은 단일 리더가 로그 쓰기 요청을 처리하고, 다른 팔로워들에게 해당 쓰기를 반영한 후, 모든 팔로워들에서 성공적으로 복제가 되면 쓰기작업을 성공으로 처리하는 방법이다.
+위 방식은 단일 리더가 로그 쓰기 요청을 처리하고, 다른 팔로워들에게 해당 쓰기를 반영한 후, 해당 팔로워들에서 성공적으로 복제가 되면 쓰기작업을 성공으로 처리하는 방법이다.
 
 ![prmary backup log replication](https://cdn.confluent.io/wp-content/uploads/primary-backup-log-replication.jpg)
 
@@ -101,11 +101,11 @@ KRaft는 기존에 존재하던 Kafka leader epoch를 사용해서 단일 epoch 
 
 ### Pull vs. push-based replication
 
-pull 방식은 실현가능한 offset으로 직접적으로 잘라낼수 있으므로, push based 방식에 비해서 라운드 트립 시간이 줄어든다. pull 기반의 KRaft는 장애가 많이 발생하는 서버들에 덜 취약한데, 그 이유는 리더가 어느 리플리카들이 voter에서 빠졌는가를 알고 있기 때문이다. pull 방식의 또 다른 장점은 Kafka의 로그 복제 레이어가 이미 pull기반의 복제로 구현이 되어있으므로, 코드를 재사용할수 있다는 점이다.
+pull 방식은 실현가능한 offset으로 직접적으로 잘라낼수 있으므로, push based 방식에 비해서 라운드 트립 시간이 줄어든다. pull 기반의 KRaft는 장애가 많이 발생하는 서버들에 덜 취약한데, 그 이유는 리더가 어느 리플리카들이 voter에서 빠졌는가를 알고 있기 때문이다. pull 방식의 또 다른 장점은 Kafka의 로그 복제 레이어가 이미 pull기반의 복제로 구현이 되어있으므로, 코드를 재사용할수 있다는 점이다. 하지만 새로운 리더가 독립적인 "begin epoch" API를 호출하여 quorum을 통지해줘야 한다는 단점이 있다. 원래의 Raft 모델에서는, 이러한 노티는 리더의 push data API로 전달될수 있었다. 또한 quorum의 과반수로부터의 레코드들을 커밋하기 위해서, 리더는 voter들이 다음 fetch 요청을 보낼때까지 기다려야 한다는 문제점도 존대한다. 이러한 트레이드 오프는 diruptive server 문제를 해결하기 위해서는 어쩔수 없다.
 
 ![quorum controller](https://cdn.confluent.io/wp-content/uploads/quorum-controller.jpg)
 
-최종적으로 Quorum Controller는 위에서 설명한 KRaft 프로토콜을 기반으로 구현되었다. 
+최종적으로 Quorum Controller는 위에서 설명한 KRaft 프로토콜을 기반으로 구현되었다.
 
 
 
