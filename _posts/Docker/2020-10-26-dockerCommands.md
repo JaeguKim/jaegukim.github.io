@@ -16,6 +16,7 @@ categories: [Docker]
 
 - build image
 > docker build --tag [tag-name] --build-arg [key]=[value] . 
+> `--no-cache` : 이미 빌드된 layer 재빌드
 
 - push image
 > docker push [registry:tag]
