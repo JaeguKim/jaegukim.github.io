@@ -68,3 +68,7 @@ categories: [Kubernetes]
 - switch context
 
 > kubectl config use-context [context name(eg. minikube)]
+
+- k9s log info
+
+> k9s info
