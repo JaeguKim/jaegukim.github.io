@@ -36,7 +36,7 @@ func main() {
 
 이를 보완하기 위해서 아래와 같이 slice의 **pointer** 로 함수 파라미터에 전달할수 있다.
 
-``` Go
+``` go
 func modifySlice(innerSlice *[]string) {
     *innerSlice = append(*innerSlice, "a")
     (*innerSlice)[0] = "b"
