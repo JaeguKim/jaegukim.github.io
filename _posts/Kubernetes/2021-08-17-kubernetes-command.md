@@ -72,3 +72,9 @@ categories: [Kubernetes]
 - k9s log info
 
 > k9s info
+
+- helm chart 버전 확인하기
+``` sh
+$ helm repo add bitnami https://charts.bitnami.com/bitnami
+$ helm search repo bitnami
+```
