@@ -123,7 +123,7 @@ visual studio code의 plugin인 GitLens를 사용하면 아래와같이 손쉽�
 ## [pop specific file in stash](https://stackoverflow.com/questions/1105253/how-would-i-extract-a-single-file-or-changes-to-a-file-from-a-git-stash)
 
 ``` sh
-git checkout stash@{0} -- <filename>
+$ git checkout stash@{0} -- <filename>
 ```
 
 ## git squash
@@ -138,5 +138,12 @@ $ git rebase -i HEAD~3 # 최근 3개의 커밋 rebase
 ## 이미 Push된 commit을 squash 한다면, 다음 커멘드를 실행
 
 ``` sh
-git push --force origin master
+$ git push --force origin master
+```
+
+## remote에서 branch 정보 갱신
+
+``` sh
+$ git remote update
+$ git fetch
 ```
