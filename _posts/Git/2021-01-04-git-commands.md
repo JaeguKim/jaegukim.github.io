@@ -71,6 +71,12 @@ git show [commit sha]
 > git branch -a // local,remote 상관없이 보기
 ```
 
+## Branch 이름 변경
+
+``` sh
+git branch -m [old-branch] [new-branch]
+```
+
 ## submodule
 
 > $ git submodule add [GIT_URL] // Add submodule
