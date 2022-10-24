@@ -37,6 +37,10 @@ categories: [Shortcut]
 | searching everywhere | press Shift twice
 | Replace text in the current file | Ctrl + R
 | Run all tests | `Ctrl + Shift + R`
+| Go to previous cursor | `Cmd + [`
+| Go to next cursor | `Cmd + ]`
+| Search from recently opened files | `Cmd + R`
+| Go to declaration or implementation | `Cmd + B`
 
 ## Github
 

@@ -10,3 +10,7 @@ categories: [Database,Redis]
 
 ## LOGIN 
 > AUTH [password]
+
+## Delete all keys from all Redis databases
+
+> redis-cli FLUSHALL

@@ -69,6 +69,10 @@ categories: [Kubernetes]
 
 > kubectl config use-context [context name(eg. minikube)]
 
+- delete context
+
+> k config delete-context [context name(eg. minikube)]
+
 - k9s log info
 
 > k9s info
