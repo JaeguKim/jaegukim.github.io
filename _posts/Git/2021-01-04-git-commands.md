@@ -153,3 +153,8 @@ $ git push --force origin master
 $ git remote update
 $ git fetch
 ```
+
+## Git Discard(폐기), Remove(제거) 차이점
+
+- Discard 변경한 내용 revert
+- Remove는 해당 파일을 삭제
