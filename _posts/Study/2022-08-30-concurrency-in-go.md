@@ -2,7 +2,7 @@
 layout: post
 title: "Concurrency in Go"
 date: 2022-08-30 12:16:00 +0900
-categories: [study]
+categories: [Study]
 ---
 
 ## 1. 동시성 소개
