@@ -42,6 +42,11 @@ categories: [Shortcut]
 | Search from recently opened files | `Cmd + R`
 | Go to declaration or implementation | `Cmd + B`
 
+## GoLand
+- the Recent Files feature that works via Ctrl + E on Windows/Linux and ⌘ + E on macOS
+- the Recent Locations feature via Ctrl + Shift + E on Windows/Linux and ⌘ + Shift + E on macOS
+- For back they are: Ctrl + Alt + Left Arrow on Windows/Linux and ⌘ + [ or ⌘ + Alt + Left Arrow on macOS. For forward they are: Ctrl + Alt + Right Arrow on Windows/Linux and ⌘ + ] or ⌘ + Alt + Right Arrow on macOS
+
 ## Github
 
 | 동작 | 커멘드 
