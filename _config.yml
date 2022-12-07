@@ -16,9 +16,9 @@ lang: en
 timezone: Asia/Shanghai
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
-title: Programmer Digest               # the main title
+title: Study Log               # the main title
 
-tagline: Road To Data Engineer   # it will display as the sub-title
+tagline: “ In order to be irreplaceable, one must always be different” – Coco Chanel   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
   A minimal, portfolio, sidebar,
