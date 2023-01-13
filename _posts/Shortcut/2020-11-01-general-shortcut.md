@@ -5,7 +5,7 @@ date: 2020-11-01 18:59:00 +0900
 categories: [Shortcut]
 ---
 
-## General
+## Mac Shortcut
 
 - Show console/Close inspect window  
 `Cmd + Option + J`
@@ -22,11 +22,11 @@ categories: [Shortcut]
 - Exporting Spring Boot application to jar file without testing  
 `./mvnw clean package -DskipTests`
 
-- Delete Cookie In Chrome
-`settings -> cookies and other site data -> see all cookies and site data -> delete some cookies`
-
 - Swap window in same application
 `cmd + backtick`
+
+- lock screen
+`Ctrl-Cmd-Q`
 
 ## Intellij
 
@@ -46,6 +46,7 @@ categories: [Shortcut]
 - the Recent Files feature that works via Ctrl + E on Windows/Linux and ⌘ + E on macOS
 - the Recent Locations feature via Ctrl + Shift + E on Windows/Linux and ⌘ + Shift + E on macOS
 - For back they are: Ctrl + Alt + Left Arrow on Windows/Linux and ⌘ + [ or ⌘ + Alt + Left Arrow on macOS. For forward they are: Ctrl + Alt + Right Arrow on Windows/Linux and ⌘ + ] or ⌘ + Alt + Right Arrow on macOS
+- Go to line : ⌘ + l
 
 ## Github
 
